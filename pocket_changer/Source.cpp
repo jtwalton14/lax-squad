@@ -21,7 +21,7 @@ int main()
    
     
         //open file
-        Mat img = imread("rgbWheel.jpg");
+        Mat img = imread("img/rgbWheel.jpg");
            for (int leftColor = 0; leftColor < colors.size(); leftColor++) {
            for( int middleColor = 0; middleColor < colors.size(); middleColor++) {
                for (int rightColor = 0; rightColor < colors.size(); rightColor++) {
@@ -41,7 +41,7 @@ int main()
                    //saveFile
                    Mat output;
                    cvtColor(hsv, output, COLOR_HSV2BGR);
-                   string fileName = "outputFiles/" + colors[leftColor] + "_" + colors[middleColor] + "_" + colors[rightColor] + ".jpg";
+                   string fileName = "output/" + colors[leftColor] + "_" + colors[middleColor] + "_" + colors[rightColor] + ".jpg";
                    imwrite(fileName, output);
             
 
