@@ -1,0 +1,10 @@
+mat-nav-list {
+  list-style-type: none;
+  line-height: 2em;
+  margin-top: 3em;
+  font-size: 20pt;
+}
+
+label {
+  padding: 2em;
+}

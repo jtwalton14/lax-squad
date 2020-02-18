@@ -7,16 +7,24 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatListModule } from "@angular/material/list";
 import { PhotoListComponent } from "./photo-list/photo-list.component";
 import { ColorListComponent } from "./color-list/color-list.component";
+import { HttpClientModule } from "@angular/common/http";
+import { SideBarComponent } from "./side-bar/side-bar.component";
 
 @NgModule({
-  declarations: [AppComponent, PhotoListComponent, ColorListComponent],
+  declarations: [
+    AppComponent,
+    PhotoListComponent,
+    ColorListComponent,
+    SideBarComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, SideBarComponent]
 })
 export class AppModule {}
