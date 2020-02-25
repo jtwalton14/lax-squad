@@ -16,3 +16,28 @@ img {
   padding: 1em;
   background-color: white;
 }
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+.toolbar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: #747e81;
+  color: white;
+  font-weight: 600;
+  background-image: url(../images/tmtLaxLoge.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  text-align: center;
+}
+
+mat-sidenav {
+  height: 100%;
+  float: left;
+  background-color: #747e81;
+  width: 150px;
+}

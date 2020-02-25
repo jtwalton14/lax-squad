@@ -1,11 +1,18 @@
-<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
-  <div class="photoCard mat-elevation-z8">
-    Photos
-    <photo-list></photo-list>
-  </div>
-  <div class="photoCard mat-elevation-z8">
-    Colors
-    <color-list></color-list>
-  </div>
-</div>
-<footer></footer>
+<div class="toolbar"></div>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened
+    ><mat-nav-list>
+      <mat-list-item>
+        <nav>
+          <a routerLink="photo-list">Photos</a>
+        </nav>
+      </mat-list-item>
+      <mat-list-item>
+        <nav>
+          <a [routerLink]="['/color-list']">Colors</a>
+        </nav>
+      </mat-list-item>
+    </mat-nav-list></mat-sidenav
+  >
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>
