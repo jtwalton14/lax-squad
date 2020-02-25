@@ -1,12 +1,9 @@
-<i class="fa fa-user-circle fa-5x" aria-hidden="true"></i><br />
-<label>Welcome User</label>
-<!-- <ul>
-  <li>Photos</li>
-  <li>Colors</li>
-</ul> -->
 <mat-nav-list>
   <mat-list-item>
-    Photos
+    <nav>
+      <a routerLink="/photo-list">Photos</a>
+    </nav>
+    <router-outlet></router-outlet>
   </mat-list-item>
   <mat-list-item>
     Colors

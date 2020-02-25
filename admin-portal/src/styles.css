@@ -28,4 +28,9 @@ body {
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100px;
+  text-align: center;
+}
+
+label {
+  padding: 2em;
 }

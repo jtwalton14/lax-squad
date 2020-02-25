@@ -8,7 +8,9 @@ import { MatListModule } from "@angular/material/list";
 import { PhotoListComponent } from "./photo-list/photo-list.component";
 import { ColorListComponent } from "./color-list/color-list.component";
 import { HttpClientModule } from "@angular/common/http";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { SideBarComponent } from "./side-bar/side-bar.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SideBarComponent } from "./side-bar/side-bar.component";
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent, SideBarComponent]
