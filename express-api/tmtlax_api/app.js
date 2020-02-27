@@ -11,15 +11,15 @@ app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
 		+ 'The intended center color is: ' + req.params.colorC + '<br />'
 		+ 'The intended right color is: ' + req.params.colorR + '<br />');
 })
-app.get('/color/add/:color&:value', function(req, res) {
-	res.send('to be implemented, color: ' + req.params.color + ' value: ' + req.params.value);
-})
-app.get('/color/remove/:color', function(req, res) {
-	res.send('to be implemented, color: ' + req.params.color);
-})
-app.get('/pocket/add/:pocket_name&:img_path', function(req, res) {
-	res.send('to be implemented, pocket_name: ' + req.params.pocket_name + ' img_path: ' + req.params.img_path);
-})
+//app.get('/color/add/:color&:value', function(req, res) {
+//	res.send('to be implemented, color: ' + req.params.color + ' value: ' + req.params.value);
+//})
+//app.get('/color/remove/:color', function(req, res) {
+//	res.send('to be implemented, color: ' + req.params.color);
+//})
+//app.get('/pocket/add/:pocket_name&:img_path', function(req, res) {
+//	res.send('to be implemented, pocket_name: ' + req.params.pocket_name + ' img_path: ' + req.params.img_path);
+//})
 
 //https.createServer({
 //	key: fs.readFileSync('cert.key'),
