@@ -4,7 +4,9 @@ This repository is for the TMTlax.com implementation for dynamic color picking o
 Enclosed:
 
 *ExpressJS API
+
 *NodeJS Angular Admin Portal
+
 *OpenCV C++ Program for color changing
 
 
