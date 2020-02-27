@@ -1,16 +1,12 @@
-<div class="toolbar"></div>
+<div class="toolbar mat-elevation-z8"></div>
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened
     ><mat-nav-list>
-      <mat-list-item>
-        <nav>
-          <a routerLink="photo-list">Photos</a>
-        </nav>
+      <mat-list-item routerLink="photo-list">
+        Photos
       </mat-list-item>
-      <mat-list-item>
-        <nav>
-          <a [routerLink]="['/color-list']">Colors</a>
-        </nav>
+      <mat-list-item routerLink="color-list">
+        Colors
       </mat-list-item>
     </mat-nav-list></mat-sidenav
   >

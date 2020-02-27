@@ -1,1 +1,17 @@
-<p>photo-list works!</p>
+<div *ngFor="let photo of photos">
+  <mat-card
+    ><mat-card-title>
+      <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Edit Photo</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete Photo</span>
+        </button>
+      </mat-menu> </mat-card-title
+    ><mat-card-content>{{ photo }}</mat-card-content></mat-card
+  >
+</div>

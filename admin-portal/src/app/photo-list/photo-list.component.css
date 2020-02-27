@@ -1,0 +1,12 @@
+mat-card {
+  width: 200px;
+  height: 350px;
+  background-color: chartreuse;
+  float: left;
+  margin: 10px;
+}
+
+.menue {
+  float: right;
+  cursor: pointer;
+}

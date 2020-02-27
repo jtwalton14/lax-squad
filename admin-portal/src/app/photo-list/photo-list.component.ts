@@ -6,7 +6,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./photo-list.component.css"]
 })
 export class PhotoListComponent implements OnInit {
+  photos: string[] = [
+    "one pocket",
+    "two pocket",
+    "three pocket",
+    "four pocket",
+    "five pocket",
+    "six pocket",
+    "seven pocket",
+    "eight pocket"
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  public test(): void {
+    console.log("hello");
+  }
 }
