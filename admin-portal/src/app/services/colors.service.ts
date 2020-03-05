@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ColorsService {
+  constructor() {}
 
-  constructor() { }
+  public getColors(): void {}
+
+  public removeColor(colorString: string): void {}
+
+  public addColor(newColor: any): void {}
 }

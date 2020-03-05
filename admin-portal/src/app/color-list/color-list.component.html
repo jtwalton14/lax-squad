@@ -1,4 +1,23 @@
-<div fxLayout="row"></div>
-<mat-list role="list" fxLayout="space around">
-  <mat-list-item *ngFor="let color of colors">{{ color }}</mat-list-item>
-</mat-list>
+<div *ngFor="let color of colors">
+  <mat-card [style.background-color]="color">
+    <mat-card-title>
+      <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="startEdit(color)">
+          <mat-icon>edit</mat-icon>
+          <span>Edit Color</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete Color</span>
+        </button>
+      </mat-menu>
+    </mat-card-title>
+    <mat-card-content [style.background-color]="color">
+      <div class="colorDescription">
+        <h1 mat-card-title>Color: {{ color }}</h1>
+        <h3 mat-card-title>HSV Value: color.hsv</h3>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
