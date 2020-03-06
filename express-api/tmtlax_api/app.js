@@ -3,13 +3,22 @@ const fs = require('fs')
 //var https = require('https')
 const app = express()
 const port = 9321
+var execFile = require('child_process').execFile
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
-	res.send('The picture you specified is: ' + req.params.id + '<br />'
-		+ 'The intended left color is: ' + req.params.colorL + '<br />'
-		+ 'The intended center color is: ' + req.params.colorC + '<br />'
-		+ 'The intended right color is: ' + req.params.colorR + '<br />');
+	// res.send('The picture you specified is: ' + req.params.id + '<br />'
+	// 	+ 'The intended left color is: ' + req.params.colorL + '<br />'
+	// 	+ 'The intended center color is: ' + req.params.colorC + '<br />'
+	// 	+ 'The intended right color is: ' + req.params.colorR + '<br />');
+
+	var child = execFile("./pocket_changer", ["img/rgbWheel.jpg", req.params.colorL, req.params.colorC, req.params.colorR],
+		function(error, stdout, stderr)
+		{
+			res.sendFile(stdout);
+		}
+	)
+	
 })
 //app.get('/color/add/:color&:value', function(req, res) {
 //	res.send('to be implemented, color: ' + req.params.color + ' value: ' + req.params.value);

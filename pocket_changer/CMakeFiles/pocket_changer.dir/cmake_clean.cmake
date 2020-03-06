@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pocket_changer.dir/Source.cpp.o"
+  "CMakeFiles/pocket_changer.dir/test.cpp.o"
   "pocket_changer.pdb"
   "pocket_changer"
 )

@@ -57,38 +57,38 @@ include CMakeFiles/pocket_changer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/pocket_changer.dir/flags.make
 
-CMakeFiles/pocket_changer.dir/Source.cpp.o: CMakeFiles/pocket_changer.dir/flags.make
-CMakeFiles/pocket_changer.dir/Source.cpp.o: Source.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jtwalton/lax-squad/pocket_changer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pocket_changer.dir/Source.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pocket_changer.dir/Source.cpp.o -c /home/jtwalton/lax-squad/pocket_changer/Source.cpp
+CMakeFiles/pocket_changer.dir/test.cpp.o: CMakeFiles/pocket_changer.dir/flags.make
+CMakeFiles/pocket_changer.dir/test.cpp.o: test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jtwalton/lax-squad/pocket_changer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pocket_changer.dir/test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pocket_changer.dir/test.cpp.o -c /home/jtwalton/lax-squad/pocket_changer/test.cpp
 
-CMakeFiles/pocket_changer.dir/Source.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pocket_changer.dir/Source.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jtwalton/lax-squad/pocket_changer/Source.cpp > CMakeFiles/pocket_changer.dir/Source.cpp.i
+CMakeFiles/pocket_changer.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pocket_changer.dir/test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jtwalton/lax-squad/pocket_changer/test.cpp > CMakeFiles/pocket_changer.dir/test.cpp.i
 
-CMakeFiles/pocket_changer.dir/Source.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pocket_changer.dir/Source.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jtwalton/lax-squad/pocket_changer/Source.cpp -o CMakeFiles/pocket_changer.dir/Source.cpp.s
+CMakeFiles/pocket_changer.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pocket_changer.dir/test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jtwalton/lax-squad/pocket_changer/test.cpp -o CMakeFiles/pocket_changer.dir/test.cpp.s
 
-CMakeFiles/pocket_changer.dir/Source.cpp.o.requires:
+CMakeFiles/pocket_changer.dir/test.cpp.o.requires:
 
-.PHONY : CMakeFiles/pocket_changer.dir/Source.cpp.o.requires
+.PHONY : CMakeFiles/pocket_changer.dir/test.cpp.o.requires
 
-CMakeFiles/pocket_changer.dir/Source.cpp.o.provides: CMakeFiles/pocket_changer.dir/Source.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/Source.cpp.o.provides.build
-.PHONY : CMakeFiles/pocket_changer.dir/Source.cpp.o.provides
+CMakeFiles/pocket_changer.dir/test.cpp.o.provides: CMakeFiles/pocket_changer.dir/test.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/test.cpp.o.provides.build
+.PHONY : CMakeFiles/pocket_changer.dir/test.cpp.o.provides
 
-CMakeFiles/pocket_changer.dir/Source.cpp.o.provides.build: CMakeFiles/pocket_changer.dir/Source.cpp.o
+CMakeFiles/pocket_changer.dir/test.cpp.o.provides.build: CMakeFiles/pocket_changer.dir/test.cpp.o
 
 
 # Object files for target pocket_changer
 pocket_changer_OBJECTS = \
-"CMakeFiles/pocket_changer.dir/Source.cpp.o"
+"CMakeFiles/pocket_changer.dir/test.cpp.o"
 
 # External object files for target pocket_changer
 pocket_changer_EXTERNAL_OBJECTS =
 
-pocket_changer: CMakeFiles/pocket_changer.dir/Source.cpp.o
+pocket_changer: CMakeFiles/pocket_changer.dir/test.cpp.o
 pocket_changer: CMakeFiles/pocket_changer.dir/build.make
 pocket_changer: /usr/local/lib/libopencv_gapi.so.4.2.0
 pocket_changer: /usr/local/lib/libopencv_stitching.so.4.2.0
@@ -149,7 +149,7 @@ CMakeFiles/pocket_changer.dir/build: pocket_changer
 
 .PHONY : CMakeFiles/pocket_changer.dir/build
 
-CMakeFiles/pocket_changer.dir/requires: CMakeFiles/pocket_changer.dir/Source.cpp.o.requires
+CMakeFiles/pocket_changer.dir/requires: CMakeFiles/pocket_changer.dir/test.cpp.o.requires
 
 .PHONY : CMakeFiles/pocket_changer.dir/requires
 
