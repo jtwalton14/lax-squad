@@ -22,6 +22,10 @@ app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
 		{
 			res.sendFile(stdout);
 			console.log("Sending picture " + req.params.id + " with colors " + req.params.colorL + " & " + req.params.colorC + " & " + req.params.colorR+ ".")
+			if (error)
+			{
+				console.log(stderr);
+			}
 		}
 	)
 	
