@@ -57,13 +57,13 @@ int main(int argc, char *argv[])
 
 unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right)
 {
-    if (colors[left] == "black" || colors[middle] == "black" || colors[right] == "black"){
+    if ((colors[left] == "black" || colors[middle] == "black" || colors[right] == "black") && s > 30){
         s = 0;
         l = blackShift(l);
 
         return h;
     }
-    else if (colors[left] == "white" || colors[middle] == "white" || colors[right] == "white"){
+    else if ((colors[left] == "white" || colors[middle] == "white" || colors[right] == "white") && s > 30){
         s = 0;
         l = whiteShift(l);
 
