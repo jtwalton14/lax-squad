@@ -7,29 +7,29 @@ var execFile = require('child_process').execFile
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
-	// res.send('The picture you specified is: ' + req.params.id + '<br />'
-	// 	+ 'The intended left color is: ' + req.params.colorL + '<br />'
-	// 	+ 'The intended center color is: ' + req.params.colorC + '<br />'
-	// 	+ 'The intended right color is: ' + req.params.colorR + '<br />');
 
-	var child = execFile("./pocket_changer", ["img/rgbWheel.jpg", req.params.colorL, req.params.colorC, req.params.colorR],
+	var id;
+	if (req.params.id == 1)
+	{
+		var id = "img/rgbWheel.jpg";
+	} else if (req.params.id == 2)
+	{
+		var id = "img/testpocket.jpg";
+	}
+
+	var child = execFile("./pocket_changer", [id, req.params.colorL, req.params.colorC, req.params.colorR],
 		function(error, stdout, stderr)
 		{
 			res.sendFile(stdout);
+			console.log("Sending picture " + req.params.id + " with colors " + req.params.colorL + " & " + req.params.colorC + " & " + req.params.colorR+ ".")
+			if (error)
+			{
+				console.log(stderr);
+			}
 		}
 	)
 	
 })
-//app.get('/color/add/:color&:value', function(req, res) {
-//	res.send('to be implemented, color: ' + req.params.color + ' value: ' + req.params.value);
-//})
-//app.get('/color/remove/:color', function(req, res) {
-//	res.send('to be implemented, color: ' + req.params.color);
-//})
-//app.get('/pocket/add/:pocket_name&:img_path', function(req, res) {
-//	res.send('to be implemented, pocket_name: ' + req.params.pocket_name + ' img_path: ' + req.params.img_path);
-//})
-
 //https.createServer({
 //	key: fs.readFileSync('cert.key'),
 //	cert: fs.readFileSync('cert.crt')
