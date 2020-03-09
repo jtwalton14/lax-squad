@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
+unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right)
 {
     if (colors[left] == "black" || colors[middle] == "black" || colors[right] == "black"){
         s = 0;
@@ -131,10 +131,11 @@ int findColor(string col)
     return -1;
 }
 
-unsigned char blackShift(unsigned char l) {
+unsigned char blackShift(unsigned char l)
+{
 
 	const unsigned char light_shift = 150;
-	
+
 	if (l - light_shift <= 0) {
 		l = 0;
 	}
@@ -145,7 +146,8 @@ unsigned char blackShift(unsigned char l) {
 	return l;
 }
 
-unsigned char whiteShift(unsigned char l) {
+unsigned char whiteShift(unsigned char l)
+{
 
 	const unsigned char light_shift = 0;
 
