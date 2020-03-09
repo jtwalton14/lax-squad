@@ -57,32 +57,46 @@ int main(int argc, char *argv[])
 
 unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
 {
-    if ((colors[left] == "black" || colors[middle] == "black" || colors[right] == "black") && s > 30){
-        s = 0;
-        l = blackShift(l);
-
-        return h;
-    }
-    else if ((colors[left] == "white" || colors[middle] == "white" || colors[right] == "white") && s > 30){
-        s = 0;
-        l = whiteShift(l);
-
-        return h;
-    }
-
     if (h < 150 && h > 80)
     {
         h = blueShift(h, hueVal[left]);
+
+        if (colors[left] == "black"){
+            s = 0;
+            l = blackShift(l);
+        }
+        else if (colors[left] == "white"){
+            s = 0;
+            l = whiteShift(l);
+        }
     }
 
-    if (h < 90 && h > 30)
+    else if (h < 90 && h > 30)
     {
         h = greenShift(h, hueVal[middle]);
+
+        if (colors[middle] == "black"){
+            s = 0;
+            l = blackShift(l);
+        }
+        else if (colors[middle] == "white"){
+            s = 0;
+            l = whiteShift(l);
+        }
     }
 
-    if (h < 30 || h > 150)
+    else if (h < 30 || h > 150)
     {
         h = redShift(h, hueVal[right]);
+
+        if (colors[right] == "black"){
+            s = 0;
+            l = blackShift(l);
+        }
+        else if (colors[right] == "white"){
+            s = 0;
+            l = whiteShift(l);
+        }
     }
 
     return h;
