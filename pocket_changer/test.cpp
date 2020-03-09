@@ -61,11 +61,11 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = blueShift(h, hueVal[left]);
 
-        if (colors[left] == "black"){
+        if (colors[left] == "black" && s > 30){
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[left] == "white"){
+        else if (colors[left] == "white" && s > 30){
             s = 0;
             l = whiteShift(l);
         }
@@ -75,11 +75,11 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = greenShift(h, hueVal[middle]);
 
-        if (colors[middle] == "black"){
+        if (colors[middle] == "black" && s > 30){
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[middle] == "white"){
+        else if (colors[middle] == "white" && s > 30){
             s = 0;
             l = whiteShift(l);
         }
@@ -89,11 +89,11 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = redShift(h, hueVal[right]);
 
-        if (colors[right] == "black"){
+        if (colors[right] == "black" && s > 30){
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[right] == "white"){
+        else if (colors[right] == "white" && s > 30){
             s = 0;
             l = whiteShift(l);
         }
