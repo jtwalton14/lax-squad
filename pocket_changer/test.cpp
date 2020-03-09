@@ -8,12 +8,14 @@
 using namespace cv;
 using namespace std;
 
-vector<string> colors = {"red", "yellow", "green", "blue", "pink"};
-vector<int> hueVal = {180, 30, 60, 120, 160};
-unsigned char colorShift(unsigned char h, int left, int middle, int right);
+vector<string> colors = {"red", "yellow", "green", "blue", "pink", "black", "white"};
+vector<int> hueVal = {180, 30, 60, 120, 160, 0, 0};
+unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
 unsigned char blueShift(unsigned char h, int hue_shift);
 unsigned char greenShift(unsigned char h, int hue_shift);
 unsigned char redShift(unsigned char h, int hue_shift);
+unsigned char blackShift(unsigned char l);
+unsigned char whiteShift(unsigned char l);
 int findColor(string col);
 
 int main(int argc, char *argv[])
@@ -35,8 +37,12 @@ int main(int argc, char *argv[])
         for (int i = 0; i < img.cols; i++)
         {
             unsigned char h = hsv.at<Vec3b>(j, i)[0];
-            h = colorShift(h, leftColor, middleColor, rightColor);
+            unsigned char s = hsv.at<Vec3b>(j, i)[1];
+            unsigned char l = hsv.at<Vec3b>(j, i)[2];
+            h = colorShift(h, s, l, leftColor, middleColor, rightColor);
             hsv.at<Vec3b>(j, i)[0] = h;
+            hsv.at<Vec3b>(j, i)[1] = s;
+			hsv.at<Vec3b>(j, i)[2] = l;
         }
     }
 
@@ -49,8 +55,20 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-unsigned char colorShift(unsigned char h, int left, int middle, int right)
+unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
 {
+    if (colors[left] == "black" || colors[middle] == "black" || colors[right] == "black"){
+        s = 0;
+        l = blackShift(l);
+
+        return h;
+    }
+    else if (colors[left] == "white" || colors[middle] == "white" || colors[right] == "white"){
+        s = 0;
+        l = whiteShift(l);
+
+        return h;
+    }
 
     if (h < 150 && h > 80)
     {
@@ -109,6 +127,35 @@ int findColor(string col)
             return i;
         }
     }
+
     return -1;
+}
+
+unsigned char blackShift(unsigned char l) {
+
+	const unsigned char light_shift = 150;
+	
+	if (l - light_shift <= 0) {
+		l = 0;
+	}
+	else {
+		l -= light_shift;
+	}
+
+	return l;
+}
+
+unsigned char whiteShift(unsigned char l) {
+
+	const unsigned char light_shift = 0;
+
+	if (l + light_shift >= 255) {
+		l = 255;
+	}
+	else {
+		l += light_shift;
+	}
+
+	return l;
 }
 
