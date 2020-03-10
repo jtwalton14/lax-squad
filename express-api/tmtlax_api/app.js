@@ -15,9 +15,6 @@ app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
 	} else if (req.params.id == 2)
 	{
 		var id = "img/testpocket.jpg";
-	} else if (req.params.id == 3 )
-	{
-		var id = "img/rgbPocket.jpg"
 	}
 
 	var child = execFile("./pocket_changer", [id, req.params.colorL, req.params.colorC, req.params.colorR],
