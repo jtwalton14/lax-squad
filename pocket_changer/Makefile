@@ -123,32 +123,32 @@ pocket_changer/fast:
 	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/build
 .PHONY : pocket_changer/fast
 
-Source.o: Source.cpp.o
+test.o: test.cpp.o
 
-.PHONY : Source.o
+.PHONY : test.o
 
 # target to build an object file
-Source.cpp.o:
-	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/Source.cpp.o
-.PHONY : Source.cpp.o
+test.cpp.o:
+	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/test.cpp.o
+.PHONY : test.cpp.o
 
-Source.i: Source.cpp.i
+test.i: test.cpp.i
 
-.PHONY : Source.i
+.PHONY : test.i
 
 # target to preprocess a source file
-Source.cpp.i:
-	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/Source.cpp.i
-.PHONY : Source.cpp.i
+test.cpp.i:
+	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-Source.s: Source.cpp.s
+test.s: test.cpp.s
 
-.PHONY : Source.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-Source.cpp.s:
-	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/Source.cpp.s
-.PHONY : Source.cpp.s
+test.cpp.s:
+	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/test.cpp.s
+.PHONY : test.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... pocket_changer"
 	@echo "... edit_cache"
-	@echo "... Source.o"
-	@echo "... Source.i"
-	@echo "... Source.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 
