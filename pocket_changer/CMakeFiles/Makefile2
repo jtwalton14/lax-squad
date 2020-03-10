@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jtwalton/lax-squad/pocket_changer
+CMAKE_SOURCE_DIR = /home/marczaka/lax-squad/pocket_changer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jtwalton/lax-squad/pocket_changer
+CMAKE_BINARY_DIR = /home/marczaka/lax-squad/pocket_changer
 
 #=============================================================================
 # Target rules for target CMakeFiles/pocket_changer.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/jtwalton/lax-squad/pocket_changer
 CMakeFiles/pocket_changer.dir/all:
 	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/depend
 	$(MAKE) -f CMakeFiles/pocket_changer.dir/build.make CMakeFiles/pocket_changer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jtwalton/lax-squad/pocket_changer/CMakeFiles --progress-num=1,2 "Built target pocket_changer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marczaka/lax-squad/pocket_changer/CMakeFiles --progress-num=1,2 "Built target pocket_changer"
 .PHONY : CMakeFiles/pocket_changer.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/pocket_changer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pocket_changer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jtwalton/lax-squad/pocket_changer/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marczaka/lax-squad/pocket_changer/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pocket_changer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jtwalton/lax-squad/pocket_changer/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marczaka/lax-squad/pocket_changer/CMakeFiles 0
 .PHONY : CMakeFiles/pocket_changer.dir/rule
 
 # Convenience name for target.
