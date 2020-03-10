@@ -8,7 +8,7 @@
 using namespace cv;
 using namespace std;
 
-vector<string> colors = {"red", "yellow", "green","lightBlue", "darkBlue", "pink", "black", "white"};
+vector<string> colors = {"red", "yellow", "green", "lightBlue", "darkBlue", "pink", "black", "white"};
 vector<int> hueVal = {180, 30, 60, 90, 120, 160, 0, 0};
 unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
 unsigned char blueShift(unsigned char h, int hue_shift);
