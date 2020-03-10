@@ -15,6 +15,9 @@ app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
 	} else if (req.params.id == 2)
 	{
 		var id = "img/testpocket.jpg";
+	} else if (req.params.id == 3)
+	{
+		var id = "img/rgbPocket.jpg";
 	}
 
 	var child = execFile("./pocket_changer", [id, req.params.colorL, req.params.colorC, req.params.colorR],
@@ -37,4 +40,4 @@ app.get('/:id&:colorL&:colorC&:colorR',function(req, res) {
 //	console.log('Example App Listening on port 9321!')})
 
 
-app.listen(port, () => console.log('TMTlax API server listening on port ${port}!'));
+app.listen(port, () => console.log('TMTlax API server listening on port 9321!'));

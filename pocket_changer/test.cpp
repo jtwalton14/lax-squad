@@ -4,6 +4,7 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 using namespace cv;
 using namespace std;
@@ -17,6 +18,7 @@ unsigned char redShift(unsigned char h, int hue_shift);
 unsigned char blackShift(unsigned char l);
 unsigned char whiteShift(unsigned char l);
 int findColor(string col);
+
 
 int main(int argc, char *argv[])
 
