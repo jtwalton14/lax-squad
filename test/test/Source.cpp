@@ -29,7 +29,8 @@ int main()
 	//Mat img = imread("colorNetTest.png");
 	//Mat img = imread("rgb.jpg");
 	//Mat img = imread("threeColorNet.jpg");
-	Mat img = imread("orange_blackNet.jpg");
+	//Mat img = imread("orange_blackNet.jpg");
+	Mat img = imread("rgbPocket.jpg");
 
 	Mat hsv;
 	cvtColor(img, hsv, COLOR_BGR2HSV);
@@ -59,12 +60,17 @@ int main()
 			}*/
 			/*else*/ if ((h < 15 || h > 165) && s > 30){
 				h = redShift(h);
+
+				
 			}
 			else if (h < 45 && h > 15) {
 				h = yellowShift(h);
 			}
 			else if (h < 75 && h > 45) {
 				h = greenShift(h);
+
+				//s = 0;
+				//l = whiteShift(l);
 			}
 			else if (h < 105 && h > 75) {
 				h = lightBlueShift(h);
@@ -106,8 +112,8 @@ unsigned char redShift(unsigned char h) {
 unsigned char yellowShift(unsigned char h) {
 	const unsigned char hue_shift = 0;
 
-	if (h + hue_shift > 30)
-		h = (h + hue_shift) - 30;
+	if (h + hue_shift > 45)
+		h = (h + hue_shift) - 45;
 	else
 		h = h + hue_shift;
 
@@ -115,10 +121,10 @@ unsigned char yellowShift(unsigned char h) {
 }
 
 unsigned char greenShift(unsigned char h) {
-	const unsigned char hue_shift = 0;
+	const unsigned char hue_shift = 30;
 
-	if (h + hue_shift > 60)
-		h = (h + hue_shift) - 60;
+	if (h + hue_shift > 75)
+		h = (h + hue_shift) - 75;
 	else
 		h = h + hue_shift;
 
@@ -128,8 +134,8 @@ unsigned char greenShift(unsigned char h) {
 unsigned char lightBlueShift(unsigned char h) {
 	const unsigned char hue_shift = 0;
 
-	if (h + hue_shift > 90)
-		h = (h + hue_shift) - 90;
+	if (h + hue_shift > 105)
+		h = (h + hue_shift) - 105;
 	else
 		h = h + hue_shift;
 
@@ -139,8 +145,8 @@ unsigned char lightBlueShift(unsigned char h) {
 unsigned char darkBlueShift(unsigned char h) {
 	const unsigned char hue_shift = 0;
 
-	if (h + hue_shift > 120)
-		h = (h + hue_shift) - 120;
+	if (h + hue_shift > 135)
+		h = (h + hue_shift) - 135;
 	else
 		h = h + hue_shift;
 
@@ -150,8 +156,8 @@ unsigned char darkBlueShift(unsigned char h) {
 unsigned char pinkShift(unsigned char h) {
 	const unsigned char hue_shift = 0;
 
-	if (h + hue_shift > 150)
-		h = (h + hue_shift) - 150;
+	if (h + hue_shift > 165)
+		h = (h + hue_shift) - 165;
 	else
 		h = h + hue_shift;
 
@@ -174,7 +180,7 @@ unsigned char blackShift(unsigned char l) {
 
 unsigned char whiteShift(unsigned char l) {
 
-	const unsigned char light_shift = 0;
+	const unsigned char light_shift = 50;
 
 	if (l + light_shift >= 255) {
 		l = 255;
