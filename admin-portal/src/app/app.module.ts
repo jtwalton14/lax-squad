@@ -14,6 +14,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatIconModule } from "@angular/material/icon";
     MatSidenavModule,
     MatCardModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent, SideBarComponent]

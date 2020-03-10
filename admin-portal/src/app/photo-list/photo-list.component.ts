@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ColorsService } from "../services";
+import { TMTColor } from "packages/objects";
 
 @Component({
   selector: "photo-list",
@@ -17,11 +19,23 @@ export class PhotoListComponent implements OnInit {
     "eight pocket"
   ];
 
-  constructor() {}
+  constructor(public colorService: ColorsService) {}
 
   ngOnInit(): void {}
 
   public test(): void {
     console.log("hello");
+  }
+
+  public startEdit(): void {
+    this.colorService.getColors().subscribe((stuff: TMTColor[]) => {
+      console.log(stuff);
+    });
+  }
+
+  public startAdd(): void {
+    this.colorService.addColor().subscribe((stuff: TMTColor) => {
+      console.log(stuff.name);
+    });
   }
 }

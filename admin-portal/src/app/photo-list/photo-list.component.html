@@ -3,11 +3,11 @@
     ><mat-card-title>
       <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="startEdit()">
           <mat-icon>edit</mat-icon>
           <span>Edit Photo</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="startAdd()">
           <mat-icon>delete</mat-icon>
           <span>Delete Photo</span>
         </button>

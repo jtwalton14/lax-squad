@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ColorsService } from "../services";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -17,11 +18,13 @@ export class ColorListComponent implements OnInit {
     "light blue"
   ];
 
-  constructor() {}
+  constructor(public colorService: ColorsService) {}
 
   ngOnInit(): void {}
 
   public startEdit(selectedColor: string): void {
-    console.log("clicked");
+    this.colorService.getColors().subscribe((stuff: any) => {
+      console.log(stuff);
+    });
   }
 }

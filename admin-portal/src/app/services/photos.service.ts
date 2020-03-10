@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
+import { TMTPhoto } from "packages/objects";
 
 @Injectable({
   providedIn: "root"
@@ -7,15 +8,15 @@ import { Observable, of } from "rxjs";
 export class PhotosService {
   constructor() {}
 
-  public getPhotos(): Observable<void> {
-    return of(void);
-  }
+  // public getPhotos(): Observable<TMTPhoto[]> {
+  //   return of(void);
+  // }
 
-  public savePhoto(newPhoto: any): Observable<void> {
-     return of(void);
-  }
+  // public savePhoto(newPhoto: any): Observable<TMTPhoto> {
+  //    return of(void);
+  // }
 
-  public removePhoto(photoKey: string): Observable<void> {
-    return of(void);
-  }
+  // public removePhoto(photoKey: string): Observable<TMTPhoto> {
+  //   return of(void);
+  // }
 }

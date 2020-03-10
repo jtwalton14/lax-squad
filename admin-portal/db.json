@@ -15,5 +15,38 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "todos": [
+    {
+      "id": 1,
+      "title": "Read SitePoint article",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Clean inbox",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "title": "Make restaurant reservation",
+      "complete": false
+    }
+  ],
+  "colors": [
+    {
+      "hexValue": 32242,
+      "name": "testy",
+      "state": "AVAILABLE",
+      "hsvValue": "weouarn",
+      "id": 5
+    },
+    {
+      "hexValue": 321,
+      "name": "cda",
+      "state": "AVAILABLE",
+      "hsvValue": "weouarn",
+      "id": 6
+    }
+  ]
 }
