@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     //saveFile
     Mat output;
     cvtColor(hsv, output, COLOR_HSV2BGR);
-    string fileName = "/home/jtwalton/lax-squad/express-api/tmtlax_api/output/" + colors[leftColor] + "_" + colors[middleColor] + "_" + colors[rightColor] + ".jpg";
+    string fileName = "/home/marczaka/lax-squad/express-api/tmtlax_api/output/" + colors[leftColor] + "_" + colors[middleColor] + "_" + colors[rightColor] + ".jpg";
     imwrite(fileName, output);
     cout << fileName;
     return 0;
