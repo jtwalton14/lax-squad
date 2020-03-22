@@ -22,7 +22,7 @@ mat-sidenav-container {
 }
 
 .toolbar {
-  height: 100px;
+  height: 60px;
   display: flex;
   align-items: center;
   background-color: #747e81;
@@ -31,13 +31,16 @@ mat-sidenav-container {
   background-image: url(../images/tmtLaxLoge.png);
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 100px;
+  background-size: 70px;
   text-align: center;
 }
 
 mat-sidenav {
-  height: 100%;
-  float: left;
+  height: 100vh;
   background-color: #747e81;
-  width: 150px;
+  width: 100px;
+}
+
+.mat-drawer-content {
+  overflow: hidden;
 }

@@ -1,6 +1,6 @@
 mat-card {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background-color: lightgray;
   float: left;
   margin: 10px;
@@ -26,7 +26,6 @@ h3 {
   font-size: 13px;
 }
 
-/* .colorDescription {
-  text-align: center;
-  display: inline-block;
-} */
+mat-chip-list {
+  padding-top: 0.75em;
+}

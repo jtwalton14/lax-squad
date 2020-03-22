@@ -1,5 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ColorsService } from "../services";
+import { TMTColor } from "packages/objects";
+import { AddColorDialogComponent } from "./add-color-dialog/add-color-dialog/add-color-dialog.component";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,23 +15,39 @@ import { ColorsService } from "../services";
   styleUrls: ["./color-list.component.css"]
 })
 export class ColorListComponent implements OnInit {
-  colors: string[] = [
+  color: string[] = [
     "red",
     "yellow",
     "orange",
     "blue",
     "purple",
     "green",
-    "light blue"
+    "light blue",
+    "pink",
+    "dark green",
+    "grey",
+    "white"
   ];
 
-  constructor(public colorService: ColorsService) {}
+  public colors: TMTColor[] = [];
 
-  ngOnInit(): void {}
+  constructor(public colorService: ColorsService, public dialog: MatDialog) {}
 
-  public startEdit(selectedColor: string): void {
-    this.colorService.getColors().subscribe((stuff: any) => {
+  ngOnInit(): void {
+    this.colorService.getColors().subscribe((stuff: TMTColor[]) => {
       console.log(stuff);
+      this.colors = stuff;
+    });
+  }
+
+  public startEdit(selectedColor: string): void {}
+
+  public addColor(): void {
+    const dialogRef: MatDialogRef<AddColorDialogComponent> = this.dialog.open(
+      AddColorDialogComponent
+    );
+    dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
+      // this.saveColor(newColor);
     });
   }
 }

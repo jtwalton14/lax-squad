@@ -1,17 +1,39 @@
-<div *ngFor="let photo of photos">
-  <mat-card
-    ><mat-card-title>
-      <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="startEdit()">
-          <mat-icon>edit</mat-icon>
-          <span>Edit Photo</span>
-        </button>
-        <button mat-menu-item (click)="startAdd()">
-          <mat-icon>delete</mat-icon>
-          <span>Delete Photo</span>
-        </button>
-      </mat-menu> </mat-card-title
-    ><mat-card-content>{{ photo }}</mat-card-content></mat-card
-  >
+<div fxLayout="row" fxLayoutAlign="end">
+  <mat-chip-list>
+    <mat-chip style="background-color: lawngreen;" (click)="addPhoto()">
+      <mat-icon>add</mat-icon>Add Photo
+    </mat-chip>
+  </mat-chip-list>
+</div>
+
+<div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
+  <div *ngFor="let photo of photos">
+    <mat-card>
+      <mat-card-title>
+        <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="startEdit()">
+            <mat-icon>edit</mat-icon>
+            <span>Edit Photo</span>
+          </button>
+          <button mat-menu-item (click)="startAdd()">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Photo</span>
+          </button>
+        </mat-menu>
+        <mat-label>
+          {{ photo.name }} - <small>{{ photo.pocketStyle }}</small></mat-label
+        >
+      </mat-card-title>
+      <img
+        mat-card-image
+        src="{{ photo.photoUrl }}"
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content>
+        <mat-label>{{ photo.type }}</mat-label>
+        <mat-label>{{ photo.state }}</mat-label>
+      </mat-card-content></mat-card
+    >
+  </div>
 </div>

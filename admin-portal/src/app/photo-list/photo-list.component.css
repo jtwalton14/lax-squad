@@ -2,11 +2,14 @@ mat-card {
   width: 200px;
   height: 350px;
   background-color: chartreuse;
-  float: left;
   margin: 10px;
 }
 
 .menue {
   float: right;
   cursor: pointer;
+}
+
+mat-chip-list {
+  padding-top: 0.75em;
 }

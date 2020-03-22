@@ -1,4 +1,4 @@
-export enum PocketStyles {
+export enum PocketStyle {
   CLASSIC = "CLASSIC",
   PITA = "PITA",
   TRAD_X = "TRAD_X",

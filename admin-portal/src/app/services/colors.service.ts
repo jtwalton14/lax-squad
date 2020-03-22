@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { TMTColor, TMTPhoto } from "packages/objects";
+import { TMTColor } from "packages/objects";
 import { map } from "rxjs/operators";
-import { Observable, Subject } from "rxjs";
+import { Observable } from "rxjs";
 import { Http, Response } from "@angular/http";
 import { State } from "packages/emuns/state";
 const API_URL = environment.apiUrl;
+const route = "/colors/";
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +15,7 @@ export class ColorsService {
   constructor(private http: Http) {}
 
   public getColors(): Observable<TMTColor[]> {
-    return this.http.get(API_URL + "/colors/").pipe(
+    return this.http.get(API_URL + route).pipe(
       map((response: Response) => {
         const todos: TMTColor[] = response.json();
 
@@ -23,24 +24,22 @@ export class ColorsService {
     );
   }
 
-  // public removeColor(colorString: string): Observable<TMTColor> {
-  //   return of(void);
-  // }
-
   public addColor(): Observable<TMTColor> {
     const newTodo: TMTColor = new TMTColor();
-    newTodo.hexValue = 321;
-    newTodo.name = "cda";
+    newTodo.hexValue = 32;
+    newTodo.name = "3sd";
     newTodo.state = State.AVAILABLE;
     newTodo.hsvValue = "weouarn";
 
-    return this.http.post(API_URL + "/colors", newTodo).pipe(
+    return this.http.post(API_URL + route, newTodo).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 
         return todos;
       })
     );
+    // .toPromise()
+    // .catch(this.handleError);
   }
 
   private handleError(error: Response | any) {

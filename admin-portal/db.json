@@ -47,6 +47,51 @@
       "state": "AVAILABLE",
       "hsvValue": "weouarn",
       "id": 6
+    },
+    {
+      "hexValue": 32,
+      "name": "3sd",
+      "state": "AVAILABLE",
+      "hsvValue": "weouarn",
+      "id": 7
+    }
+  ],
+  "photos": [
+    {
+      "name": "Testy Photo",
+      "extention": "png",
+      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "pocketStyle": "CLASSIC",
+      "state": "AVAILABLE",
+      "type": "MALE",
+      "id": 1
+    },
+    {
+      "name": "Testy Photo",
+      "extention": "png",
+      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "pocketStyle": "CLASSIC",
+      "state": "AVAILABLE",
+      "type": "MALE",
+      "id": 2
+    },
+    {
+      "name": "Testy Photo",
+      "extention": "png",
+      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "pocketStyle": "CLASSIC",
+      "state": "AVAILABLE",
+      "type": "MALE",
+      "id": 3
+    },
+    {
+      "name": "Testy Photo",
+      "extention": "png",
+      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "pocketStyle": "CLASSIC",
+      "state": "AVAILABLE",
+      "type": "MALE",
+      "id": 4
     }
   ]
 }
