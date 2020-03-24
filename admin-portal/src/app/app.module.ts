@@ -20,10 +20,12 @@ import { MatInputModule } from "@angular/material/input";
 import { FileUploadModule } from "ng2-file-upload";
 import { MatSelectModule } from "@angular/material/select";
 import { MatButtonModule } from "@angular/material/button";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { HttpModule } from "@angular/http";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
+import { PocketTypeListComponent } from './pocket-type-list/pocket-type-list/pocket-type-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo
     ColorListComponent,
     SideBarComponent,
     AddColorDialogComponent,
-    AddPhotoDialogComponent
+    AddPhotoDialogComponent,
+    PocketTypeListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo
     MatInputModule,
     FileUploadModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent, SideBarComponent]
