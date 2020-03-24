@@ -28,6 +28,13 @@ export class ColorListComponent implements OnInit {
     "grey",
     "white"
   ];
+  //   public scopeVariable.options: any = {
+  //     label: "Choose a color",
+  //     icon: "brush",
+  //     default: "#f00",
+  //     genericPalette: false,
+  //     history: false
+  // };
 
   public colors: TMTColor[] = [];
 
@@ -49,5 +56,9 @@ export class ColorListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
       // this.saveColor(newColor);
     });
+  }
+
+  public deleteColor(selectedColor: TMTColor): void {
+    console.log(selectedColor);
   }
 }

@@ -7,10 +7,8 @@ export enum PocketType {
 }
 
 export class TMTPhoto {
-  public name: string;
   public photoUrl: string;
   public pocketStyle: PocketStyle;
   public state: State;
-  public extention: string;
   public type: PocketType;
 }

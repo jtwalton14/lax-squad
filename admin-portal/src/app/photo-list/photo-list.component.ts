@@ -22,7 +22,6 @@ export class PhotoListComponent implements OnInit {
   }
 
   public loadPhotos(): void {
-    console.log("hello");
     this.photoService.getPhotos().subscribe((photos: TMTPhoto[]) => {
       this.photos = photos;
       this.busy = false;
@@ -37,8 +36,6 @@ export class PhotoListComponent implements OnInit {
 
   public startAdd(): void {
     const test: TMTPhoto = new TMTPhoto();
-    test.name = "Testy Photo";
-    test.extention = "png";
     test.photoUrl =
       "https://material.angular.io/assets/img/examples/shiba2.jpg";
     test.pocketStyle = PocketStyle.CLASSIC;
@@ -46,7 +43,6 @@ export class PhotoListComponent implements OnInit {
     test.type = PocketType.MALE;
     this.busy = true;
     this.photoService.addPhoto(test).subscribe((stuff: TMTPhoto) => {
-      console.log(stuff.name);
       this.loadPhotos();
     });
   }

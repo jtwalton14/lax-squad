@@ -21,18 +21,23 @@
             <span>Delete Photo</span>
           </button>
         </mat-menu>
-        <mat-label>
-          {{ photo.name }} - <small>{{ photo.pocketStyle }}</small></mat-label
-        >
+        <mat-label class="content"> {{ photo.pocketStyle }}</mat-label>
       </mat-card-title>
       <img
         mat-card-image
         src="{{ photo.photoUrl }}"
         alt="Photo of a Shiba Inu"
       />
-      <mat-card-content>
-        <mat-label>{{ photo.type }}</mat-label>
-        <mat-label>{{ photo.state }}</mat-label>
+      <mat-card-content class="content">
+        <div fxLayout="row" style="margin-bottom: 10px;">
+          <mat-label
+            >Pocket Type: <span class="label">{{ photo.type }}</span></mat-label
+          >
+        </div>
+        <mat-label
+          >May Delete this:
+          <span class="label">{{ photo.state }}</span></mat-label
+        >
       </mat-card-content></mat-card
     >
   </div>

@@ -1,6 +1,6 @@
 mat-card {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 50px;
   background-color: lightgray;
   float: left;
   margin: 10px;
@@ -22,6 +22,7 @@ mat-card-content {
 h1 {
   font-size: 13px;
 }
+
 h3 {
   font-size: 13px;
 }

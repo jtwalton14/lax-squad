@@ -93,5 +93,17 @@
       "type": "MALE",
       "id": 4
     }
+  ],
+  "pocketStyles": [
+    "CLASSIC",
+    "PITA",
+    "TRAD_X",
+    "STANWICK",
+    "O_CHANNEL",
+    "RELEASE",
+    "LADDER",
+    "MESH_RUNNER",
+    "MENS_CORNER",
+    "SINGLE_TWIST_PITA"
   ]
 }

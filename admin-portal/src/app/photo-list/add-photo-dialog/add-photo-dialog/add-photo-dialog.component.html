@@ -1,1 +1,33 @@
-<p>add-photo-dialog works!</p>
+<h2 mat-dialog-title>Add new pocket here.</h2>
+<div fxLayout="column" fxLayoutGap="10px">
+  <mat-label>Pocket Styles</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let style of styles">
+        {{ style }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-label>Pocket Type</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option value="1">Men</mat-option>
+      <mat-option value="2">Women</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div fxLayout="row">
+    <input
+      type="file"
+      ng2FileSelect
+      [uploader]="uploader"
+      (onFileSelected)="test($event)"
+      accept=".png, .jpg"
+    />
+  </div>
+</div>
+<mat-dialog-actions style="float: right;">
+  <div fxLayout="row">
+    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button [mat-dialog-close]="true">Cancel</button>
+  </div>
+</mat-dialog-actions>

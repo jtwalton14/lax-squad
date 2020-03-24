@@ -23,6 +23,16 @@ export class PhotoService {
     );
   }
 
+  public getPocketStyles(): Observable<string[]> {
+    return this.http.get(API_URL + "/pocketStyles/").pipe(
+      map((response: Response) => {
+        const todos: any = response.json();
+
+        return todos;
+      })
+    );
+  }
+
   public addPhoto(newPhoto: TMTPhoto): Observable<TMTPhoto> {
     return this.http.post(API_URL + route, newPhoto).pipe(
       map((response: Response) => {
@@ -44,7 +54,7 @@ export class PhotoService {
   }
 
   public removePhoto(photo: TMTPhoto): Observable<TMTPhoto> {
-    return this.http.post(API_URL + route + photo.name, photo).pipe(
+    return this.http.post(API_URL + route, photo).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 

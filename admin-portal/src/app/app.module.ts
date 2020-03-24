@@ -2,7 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PhotoListComponent } from "./photo-list/photo-list.component";
 import { ColorListComponent } from "./color-list/color-list.component";
@@ -18,6 +17,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { FileUploadModule } from "ng2-file-upload";
+import { MatSelectModule } from "@angular/material/select";
+import { MatButtonModule } from "@angular/material/button";
 
 import { HttpModule } from "@angular/http";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
@@ -34,7 +36,6 @@ import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MatListModule,
     HttpClientModule,
@@ -47,7 +48,10 @@ import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo
     MatChipsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FileUploadModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent, SideBarComponent]
