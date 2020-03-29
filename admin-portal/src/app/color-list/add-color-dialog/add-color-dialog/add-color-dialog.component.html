@@ -1,16 +1,62 @@
-<h1>Add New Color</h1>
-<div fxLayout="column" fxLayoutGap="20px">
-  <div fxLayout="row" fxLayout="10px">
-    <mat-form-field>
-      <input matInput placeholder="Name" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayout="10px">
-    <mat-form-field>
-      <input matInput placeholder="adjl" />
-    </mat-form-field>
-  </div>
+<div style="max-width: 250px;" *ngIf="selectedColor">
+  <h1>Add New Color</h1>
   <a href="https://www.w3schools.com/colors/colors_hsl.asp" target="_blank">
-    Follow Me to add color</a
+    Click me to find color values</a
   >
+  <div fxLayout="column" fxLayoutGap="5px">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="selectedColor.name" />
+      <mat-hint>Name of Color</mat-hint>
+    </mat-form-field>
+    <mat-label>HSL Value <small></small></mat-label>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="360"
+          [(ngModel)]="selectedColor.h"
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="100"
+          [(ngModel)]="selectedColor.s"
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="100"
+          [(ngModel)]="selectedColor.l"
+        />
+      </mat-form-field>
+    </div>
+    <mat-hint>ex: hsl(60, 100, 52)</mat-hint>
+    <mat-label>Hex Value </mat-label>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="selectedColor.hexValue" />
+      <mat-hint>ex: #ffff0a</mat-hint>
+    </mat-form-field>
+  </div>
 </div>
+<mat-dialog-actions style="float: right;">
+  <div fxLayout="row">
+    <button
+      mat-raised-button
+      color="primary"
+      disabled="false"
+      [mat-dialog-close]="selectedColor"
+    >
+      Submit
+    </button>
+    <button mat-raised-button [mat-dialog-close]="true">Cancel</button>
+  </div>
+</mat-dialog-actions>
+<!-- <input matInput type="color" [(value)]="testt" (change)="test($event)" /> -->

@@ -35,25 +35,13 @@
   ],
   "colors": [
     {
-      "hexValue": 32242,
+      "hexValue": "#0aff1b",
       "name": "testy",
-      "state": "AVAILABLE",
       "hsvValue": "weouarn",
-      "id": 5
-    },
-    {
-      "hexValue": 321,
-      "name": "cda",
-      "state": "AVAILABLE",
-      "hsvValue": "weouarn",
-      "id": 6
-    },
-    {
-      "hexValue": 32,
-      "name": "3sd",
-      "state": "AVAILABLE",
-      "hsvValue": "weouarn",
-      "id": 7
+      "id": 5,
+      "h": 11,
+      "s": 14,
+      "l": 16
     }
   ],
   "photos": [
@@ -94,7 +82,7 @@
       "id": 4
     }
   ],
-  "pocketStyles": [
+  "pocketType": [
     "CLASSIC",
     "PITA",
     "TRAD_X",

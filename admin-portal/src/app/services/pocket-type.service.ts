@@ -1,42 +1,30 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { TMTColor } from "packages/objects";
-import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
 import { Http, Response } from "@angular/http";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+
 const API_URL = environment.apiUrl;
-const route = "/colors/";
+const route = "/pocketType/";
 
 @Injectable({
   providedIn: "root"
 })
-export class ColorsService {
+export class PocketTypeService {
   constructor(private http: Http) {}
 
-  public getColors(): Observable<TMTColor[]> {
+  public getPocketTypes(): Observable<string[]> {
     return this.http.get(API_URL + route).pipe(
       map((response: Response) => {
-        const todos: TMTColor[] = response.json();
+        const todos: string[] = response.json();
 
         return todos;
       })
     );
   }
 
-  public addColor(newColor: TMTColor): Observable<TMTColor> {
-    return this.http.post(API_URL + route, newColor).pipe(
-      map((response: Response) => {
-        const todos: any = response.json();
-
-        return todos;
-      })
-    );
-    // .toPromise(Obsservable<TMTColor>)
-    // .catch(this.handleError);
-  }
-
-  public putColor(newColor: TMTColor): Observable<TMTColor> {
-    return this.http.put(API_URL + route + newColor.id, newColor).pipe(
+  public addPocketType(pocketList: string[]): Observable<string[]> {
+    return this.http.post(API_URL + route, pocketList).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 
@@ -44,7 +32,19 @@ export class ColorsService {
       })
     );
     // .toPromise()
-    // .catch(this.handleError);
+    // .catch
+  }
+
+  public removePocketType(type: string): Observable<string> {
+    return this.http.delete(API_URL + route + type).pipe(
+      map((response: Response) => {
+        const todos: any = response.json();
+
+        return todos;
+      })
+    );
+    // .toPromise()
+    // .catch
   }
 
   private handleError(error: Response | any) {

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AddPhotoDialogComponent } from './add-photo-dialog.component';
+import { AddPhotoDialogComponent } from "../photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 
-describe('AddPhotoDialogComponent', () => {
+describe("AddPhotoDialogComponent", () => {
   let component: AddPhotoDialogComponent;
   let fixture: ComponentFixture<AddPhotoDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddPhotoDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [AddPhotoDialogComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('AddPhotoDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

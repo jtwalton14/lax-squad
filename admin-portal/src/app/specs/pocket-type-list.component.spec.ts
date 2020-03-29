@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PocketTypeListComponent } from './pocket-type-list.component';
+import { PocketTypeListComponent } from "../pocket-type-list/pocket-type-list/pocket-type-list.component";
 
-describe('PocketTypeListComponent', () => {
+describe("PocketTypeListComponent", () => {
   let component: PocketTypeListComponent;
   let fixture: ComponentFixture<PocketTypeListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PocketTypeListComponent ]
-    })
-    .compileComponents();
+      declarations: [PocketTypeListComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PocketTypeListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

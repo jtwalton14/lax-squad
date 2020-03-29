@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ColorsService } from "../services";
-import { TMTColor } from "packages/objects";
+import { TMTColor, TmTUser } from "packages/objects";
 import { AddColorDialogComponent } from "./add-color-dialog/add-color-dialog/add-color-dialog.component";
 import {
   MatDialog,
@@ -29,29 +29,60 @@ export class ColorListComponent implements OnInit {
     "white"
   ];
 
+  public busy = false;
+
   public colors: TMTColor[] = [];
 
   constructor(public colorService: ColorsService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.colorService.getColors().subscribe((stuff: TMTColor[]) => {
-      console.log(stuff);
-      this.colors = stuff;
-    });
+    this.loadColors();
   }
 
-  public startEdit(selectedColor: string): void {}
+  public startEdit(color: TMTColor): void {
+    const dialogRef: MatDialogRef<AddColorDialogComponent> = this.dialog.open(
+      AddColorDialogComponent,
+      {
+        data: { selectedColor: color }
+      }
+    );
+    dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
+      this.saveColor(newColor);
+    });
+  }
 
   public addColor(): void {
     const dialogRef: MatDialogRef<AddColorDialogComponent> = this.dialog.open(
       AddColorDialogComponent
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
-      // this.saveColor(newColor);
+      this.saveNewColor(newColor);
+      this.loadColors();
     });
   }
 
   public deleteColor(selectedColor: TMTColor): void {
     console.log(selectedColor);
+  }
+
+  public saveColor(newColor: TMTColor): void {
+    this.colorService.putColor(newColor).subscribe((savedColor: TMTColor) => {
+      console.log(savedColor);
+      this.loadColors();
+    });
+  }
+
+  public saveNewColor(newColor: TMTColor): void {
+    this.colorService.addColor(newColor).subscribe((savedColor: TMTColor) => {
+      this.loadColors();
+    });
+  }
+
+  public loadColors(): void {
+    this.busy = true;
+    this.colorService.getColors().subscribe((stuff: TMTColor[]) => {
+      this.colors = stuff;
+      this.busy = false;
+    });
   }
 }

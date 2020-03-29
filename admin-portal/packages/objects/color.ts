@@ -1,9 +1,26 @@
 import { State } from "packages/emuns/state";
+import { NgIf } from "@angular/common";
 
 export class TMTColor {
+  public id: string;
   public name: string;
 
-  public hsvValue: string;
-  public hexValue: number;
-  public state: State;
+  public h: number;
+  public s: number;
+  public l: number;
+  public hexValue: string;
+
+  constructor(
+    name?: string,
+    h?: number,
+    s?: number,
+    l?: number,
+    hexValue?: string
+  ) {
+    this.name = name ? name : "";
+    this.h = h ? h : 0;
+    this.s = s ? s : 0;
+    this.l = l ? l : 0;
+    this.hexValue = hexValue ? hexValue : "#";
+  }
 }

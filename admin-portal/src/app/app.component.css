@@ -38,9 +38,11 @@ mat-sidenav-container {
 mat-sidenav {
   height: 100vh;
   background-color: #747e81;
-  width: 100px;
+  width: 150px;
 }
 
 .mat-drawer-content {
-  overflow: hidden;
+  overflow-x: hidden;
+
+  overflow-y: auto;
 }

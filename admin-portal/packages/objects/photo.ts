@@ -1,6 +1,3 @@
-import { PocketStyle } from "packages/emuns/pocket-style";
-import { State } from "packages/emuns/state";
-
 export enum PocketType {
   MALE = "MALE",
   FEMALE = "FEMALE"
@@ -8,7 +5,19 @@ export enum PocketType {
 
 export class TMTPhoto {
   public photoUrl: string;
-  public pocketStyle: PocketStyle;
-  public state: State;
-  public type: PocketType;
+  public pocketStyle: string;
+  public state: string;
+  public type: string;
+
+  constructor(
+    photoUrl?: string,
+    pocketStyle?: string,
+    state?: string,
+    type?: string
+  ) {
+    this.photoUrl = photoUrl ? photoUrl : "";
+    this.pocketStyle = pocketStyle ? pocketStyle : "";
+    this.state = state ? state : "";
+    this.type = type ? type : "";
+  }
 }

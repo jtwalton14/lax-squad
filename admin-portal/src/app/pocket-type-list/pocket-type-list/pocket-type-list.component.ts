@@ -1,12 +1,18 @@
 import { Component, OnInit } from "@angular/core";
+import { PocketTypeService } from "src/app/services/pocket-type.service";
 
 @Component({
-  selector: "app-pocket-type-list",
+  selector: "pocket-type-list",
   templateUrl: "./pocket-type-list.component.html",
   styleUrls: ["./pocket-type-list.component.css"]
 })
 export class PocketTypeListComponent implements OnInit {
-  constructor() {}
+  public typeList: string[];
+  constructor(public pocketTypeService: PocketTypeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pocketTypeService.getPocketTypes().subscribe((list: string[]) => {
+      console.log(list);
+    });
+  }
 }
