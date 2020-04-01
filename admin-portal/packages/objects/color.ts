@@ -1,6 +1,3 @@
-import { State } from "packages/emuns/state";
-import { NgIf } from "@angular/common";
-
 export class TMTColor {
   public id: string;
   public name: string;

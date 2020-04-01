@@ -28,6 +28,7 @@ import { HttpModule } from "@angular/http";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/pocket-type-list.component";
+import { AddPocketTypeDialogComponent } from "./pocket-type-list/pocket-type-list/add-pocket-type-dialog/add-pocket-type-dialog.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/poc
     SideBarComponent,
     AddColorDialogComponent,
     AddPhotoDialogComponent,
-    PocketTypeListComponent
+    PocketTypeListComponent,
+    AddPocketTypeDialogComponent
   ],
   imports: [
     BrowserModule,

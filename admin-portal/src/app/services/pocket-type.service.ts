@@ -3,6 +3,7 @@ import { environment } from "src/environments/environment";
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { PocketType } from "packages/objects";
 
 const API_URL = environment.apiUrl;
 const route = "/pocketType/";
@@ -13,18 +14,18 @@ const route = "/pocketType/";
 export class PocketTypeService {
   constructor(private http: Http) {}
 
-  public getPocketTypes(): Observable<string[]> {
+  public getPocketTypes(): Observable<PocketType[]> {
     return this.http.get(API_URL + route).pipe(
       map((response: Response) => {
-        const todos: string[] = response.json();
+        const todos: PocketType[] = response.json();
 
         return todos;
       })
     );
   }
 
-  public addPocketType(pocketList: string[]): Observable<string[]> {
-    return this.http.post(API_URL + route, pocketList).pipe(
+  public savePocketTypes(pocketList: string[]): Observable<PocketType[]> {
+    return this.http.put(API_URL + route, pocketList).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 
@@ -35,7 +36,7 @@ export class PocketTypeService {
     // .catch
   }
 
-  public removePocketType(type: string): Observable<string> {
+  public removePocketType(type: string): Observable<PocketType> {
     return this.http.delete(API_URL + route + type).pipe(
       map((response: Response) => {
         const todos: any = response.json();

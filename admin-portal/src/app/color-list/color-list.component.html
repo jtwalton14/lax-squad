@@ -10,8 +10,8 @@
   <div *ngFor="let color of colors">
     <mat-card [style.background-color]="color.hexValue">
       <mat-card-title>
-        <mat-icon class="menue">more_vert</mat-icon>
-        <mat-menu>
+        <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="startEdit(color)">
             <mat-icon>edit</mat-icon>
             <span>Edit Color</span>
