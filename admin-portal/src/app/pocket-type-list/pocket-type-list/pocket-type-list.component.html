@@ -7,16 +7,16 @@
 </div>
 
 <div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
-  <div *ngFor="let type of typeList; index as i">
+  <div *ngFor="let type of typeList">
     <mat-card>
       <mat-card-title>
         <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="startEdit(type, i)">
+          <button mat-menu-item (click)="startEdit(type)">
             <mat-icon>edit</mat-icon>
             <span>Edit Item</span>
           </button>
-          <button mat-menu-item (click)="deleteType(type)">
+          <button mat-menu-item (click)="confirmDelete(type)">
             <mat-icon>delete</mat-icon>
             <span>Delete Item</span>
           </button>
@@ -24,7 +24,7 @@
       </mat-card-title>
       <mat-card-content>
         <div class="colorDescription">
-          <h3 mat-card-title>{{ type }}</h3>
+          <h3 mat-card-title>{{ type.name }}</h3>
         </div>
       </mat-card-content>
     </mat-card>

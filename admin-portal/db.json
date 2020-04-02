@@ -83,7 +83,10 @@
     }
   ],
   "pocketType": [
-    { "name": "CLASSIC", "id": 1 },
+    {
+      "name": "CLASSIC",
+      "id": 1
+    },
     {
       "name": "PITA",
       "id": 2

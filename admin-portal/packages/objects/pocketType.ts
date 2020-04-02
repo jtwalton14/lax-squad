@@ -1,4 +1,4 @@
-export class TMTColor {
+export class TMTPocket {
   public id: string;
   public name: string;
 

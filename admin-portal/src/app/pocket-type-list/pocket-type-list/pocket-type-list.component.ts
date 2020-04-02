@@ -4,6 +4,9 @@ import { from, Observable } from "rxjs";
 import { mergeMap, toArray, map } from "rxjs/operators";
 import { MatDialogRef, MatDialog } from "@angular/material/dialog";
 import { AddPocketTypeDialogComponent } from "./add-pocket-type-dialog/add-pocket-type-dialog.component";
+import { TMTPocket } from "packages/objects/pocketType";
+import { ConfirmDeleteDialogComponent } from "src/app/confirm-delete-dialog/confirm-delete-dialog.component";
+import { TmTUser } from "packages/objects";
 
 @Component({
   selector: "pocket-type-list",
@@ -11,7 +14,7 @@ import { AddPocketTypeDialogComponent } from "./add-pocket-type-dialog/add-pocke
   styleUrls: ["./pocket-type-list.component.css"]
 })
 export class PocketTypeListComponent implements OnInit {
-  public typeList: string[];
+  public typeList: TMTPocket[];
   public busy = false;
   constructor(
     public pocketTypeService: PocketTypeService,
@@ -22,19 +25,40 @@ export class PocketTypeListComponent implements OnInit {
     this.loadTypes();
   }
 
-  public startEdit(type: string, index: number): void {
+  public startEdit(type: TMTPocket): void {
     const dialogRef: MatDialogRef<AddPocketTypeDialogComponent> = this.dialog.open(
       AddPocketTypeDialogComponent,
       {
         data: { selectedType: type }
       }
     );
-    dialogRef.afterClosed().subscribe((newType: string) => {
-      this.saveList(newType, index);
+    dialogRef.afterClosed().subscribe((newType: TMTPocket) => {
+      if (newType) {
+        type.name = newType.name;
+        this.saveList(type);
+      }
     });
   }
 
-  public deleteType(type: string): void {}
+  public confirmDelete(type: TMTPocket): void {
+    const dialogRef: MatDialogRef<ConfirmDeleteDialogComponent> = this.dialog.open(
+      ConfirmDeleteDialogComponent
+    );
+    dialogRef.afterClosed().subscribe((remove: boolean) => {
+      console.log("djskn");
+      if (remove) {
+        this.deletePocket(type);
+      }
+    });
+  }
+
+  public deletePocket(type: TMTPocket): void {
+    this.pocketTypeService
+      .removePocketType(type.id)
+      .subscribe((removedPocket: TMTPocket) => {
+        this.loadTypes();
+      });
+  }
 
   public getDisplayText(type: string): Observable<string> {
     return from(type).pipe(
@@ -52,27 +76,36 @@ export class PocketTypeListComponent implements OnInit {
 
   public loadTypes(): void {
     this.busy = true;
+    // this.pocketTypeService
+    //   .getPocketTypes()
+    //   .pipe(
+    //     mergeMap((list: PocketType[]) => list),
+    //     map((pocketType: PocketType) => pocketType.name),
+    //     mergeMap((typeName: string) => this.getDisplayText(typeName)),
+    //     toArray()
+    //   )
+    //   .subscribe((formattedList: string[]) => {
+    //     this.typeList = formattedList;
+    //     this.busy = false;
+    //   });
+
     this.pocketTypeService
       .getPocketTypes()
-      .pipe(
-        mergeMap((list: string[]) => list),
-        mergeMap((pocketType: string) => {
-          return this.getDisplayText(pocketType);
-        }),
-        toArray()
-      )
-      .subscribe((formattedList: string[]) => {
+
+      .subscribe((formattedList: TMTPocket[]) => {
         this.typeList = formattedList;
         this.busy = false;
       });
   }
 
-  public saveList(newType: string, index: number): void {
-    this.typeList[index] = newType;
+  public saveList(newType: TMTPocket): void {
+    // this.typeList[index] = newType;
     this.pocketTypeService
-      .savePocketTypes(this.typeList)
-      .subscribe((newList: string[]) => {
+      .savePocket(newType)
+      .subscribe((newList: TMTPocket) => {
         this.loadTypes();
       });
   }
+
+  //add add pocket type dialog
 }
