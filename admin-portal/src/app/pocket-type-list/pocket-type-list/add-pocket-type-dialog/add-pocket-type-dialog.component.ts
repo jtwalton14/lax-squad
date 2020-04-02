@@ -18,7 +18,7 @@ export class AddPocketTypeDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data.selectedType != null) {
+    if (this.data != null) {
       this.type.name = this.data.selectedType.name;
     }
   }

@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Http, Response } from "@angular/http";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Observable, from, of } from "rxjs";
+import { map, mergeMap, toArray } from "rxjs/operators";
 import { TMTPocket } from "packages/objects/pocketType";
 
 const API_URL = environment.apiUrl;
@@ -25,7 +25,8 @@ export class PocketTypeService {
   }
 
   public savePocket(pocket: TMTPocket): Observable<TMTPocket> {
-    return this.http.put(API_URL + route + pocket.id, pocket).pipe(
+    return this.formatNames(pocket, "out").pipe(
+      mergeMap((t: TMTPocket) => this.http.put(API_URL + route + t.id, t)),
       map((response: Response) => {
         const todos: any = response.json();
 
@@ -34,6 +35,17 @@ export class PocketTypeService {
     );
     // .toPromise()
     // .catch
+  }
+
+  public saveNewPocket(pocket: TMTPocket): Observable<TMTPocket> {
+    return this.formatNames(pocket, "out").pipe(
+      mergeMap((t: TMTPocket) => this.http.post(API_URL + route, pocket)),
+      map((response: Response) => {
+        const todos: any = response.json();
+
+        return todos;
+      })
+    );
   }
 
   public removePocketType(type: string): Observable<TMTPocket> {
@@ -52,4 +64,36 @@ export class PocketTypeService {
     console.error("ApiService::handleError", error);
     return Observable.throw(error);
   }
+
+  public formatNames(
+    newType: TMTPocket,
+    stream: string
+  ): Observable<TMTPocket> {
+    console.log(newType);
+    return from(newType.name).pipe(
+      mergeMap((letter: string) => {
+        if (letter === "_") {
+          return " ";
+        } else {
+          return letter;
+        }
+      }),
+      toArray(),
+      map((changedString: string[]) => changedString.join(""))
+    );
+  }
+  //   map((letter: string) => {
+  //     console.log(letter);
+
+  //     return newType;
+  //     // if (stream === "in") {
+  //     //   letter = letter.replace("_", "");
+  //     //   return of(letter);
+  //     // } else if (stream === "out") {
+  //     //   letter = letter.replace(" ", "_");
+  //     //   console.log(letter);
+  //     //   return of(letter);
+  //     // }
+  //   })
+  // );
 }

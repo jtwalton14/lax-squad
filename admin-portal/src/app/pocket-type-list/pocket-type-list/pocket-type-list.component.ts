@@ -45,7 +45,6 @@ export class PocketTypeListComponent implements OnInit {
       ConfirmDeleteDialogComponent
     );
     dialogRef.afterClosed().subscribe((remove: boolean) => {
-      console.log("djskn");
       if (remove) {
         this.deletePocket(type);
       }
@@ -107,5 +106,22 @@ export class PocketTypeListComponent implements OnInit {
       });
   }
 
-  //add add pocket type dialog
+  public addNewType(): void {
+    const dialogRef: MatDialogRef<AddPocketTypeDialogComponent> = this.dialog.open(
+      AddPocketTypeDialogComponent
+    );
+    dialogRef.afterClosed().subscribe((newType: TMTPocket) => {
+      if (newType) {
+        this.saveNewType(newType);
+      }
+    });
+  }
+
+  public saveNewType(newType: TMTPocket) {
+    this.pocketTypeService
+      .saveNewPocket(newType)
+      .subscribe((savedPocket: TMTPocket) => {
+        this.loadTypes();
+      });
+  }
 }
