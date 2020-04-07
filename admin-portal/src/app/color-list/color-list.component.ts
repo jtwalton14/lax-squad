@@ -7,6 +7,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
+import { ConfirmDeleteDialogComponent } from "../confirm-delete-dialog/confirm-delete-dialog.component";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -47,7 +48,9 @@ export class ColorListComponent implements OnInit {
       }
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
-      this.saveColor(newColor);
+      if (newColor) {
+        this.saveColor(newColor);
+      }
     });
   }
 
@@ -56,13 +59,30 @@ export class ColorListComponent implements OnInit {
       AddColorDialogComponent
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
-      this.saveNewColor(newColor);
-      this.loadColors();
+      if (newColor) {
+        this.saveNewColor(newColor);
+        this.loadColors();
+      }
     });
   }
 
-  public deleteColor(selectedColor: TMTColor): void {
-    console.log(selectedColor);
+  public startDelete(selectedColor: TMTColor): void {
+    const dialogRef: MatDialogRef<ConfirmDeleteDialogComponent> = this.dialog.open(
+      ConfirmDeleteDialogComponent
+    );
+    dialogRef.afterClosed().subscribe((confirmDelete: boolean) => {
+      if (confirmDelete) {
+        this.deleteColor(selectedColor);
+      }
+    });
+  }
+
+  public deleteColor(color: TMTColor): void {
+    this.colorService
+      .removeColor(color.id)
+      .subscribe((deletedColor: TMTColor) => {
+        this.loadColors();
+      });
   }
 
   public saveColor(newColor: TMTColor): void {

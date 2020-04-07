@@ -1,6 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="end">
   <mat-chip-list>
-    <mat-chip style="background-color: lawngreen;" (click)="addNewType()">
+    <mat-chip
+      class="mat-elevation-z8"
+      style="background-color: lawngreen;"
+      (click)="addNewType()"
+    >
       <mat-icon>add</mat-icon>Add Pocket Type
     </mat-chip>
   </mat-chip-list>
@@ -8,7 +12,7 @@
 
 <div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
   <div *ngFor="let type of typeList">
-    <mat-card>
+    <mat-card class="mat-elevation-z8">
       <mat-card-title>
         <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
         <mat-menu #menu="matMenu">
@@ -24,7 +28,9 @@
       </mat-card-title>
       <mat-card-content>
         <div class="colorDescription">
-          <h3 mat-card-title>{{ type.name }}</h3>
+          <h3 mat-card-title>
+            {{ pocketTypeService.formatName(type.name, "remove") }}
+          </h3>
         </div>
       </mat-card-content>
     </mat-card>

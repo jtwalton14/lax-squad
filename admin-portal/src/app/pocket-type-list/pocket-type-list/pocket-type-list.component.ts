@@ -59,34 +59,8 @@ export class PocketTypeListComponent implements OnInit {
       });
   }
 
-  public getDisplayText(type: string): Observable<string> {
-    return from(type).pipe(
-      mergeMap((letter: string) => {
-        if (letter === "_") {
-          return " ";
-        } else {
-          return letter;
-        }
-      }),
-      toArray(),
-      map((changedString: string[]) => changedString.join(""))
-    );
-  }
-
   public loadTypes(): void {
     this.busy = true;
-    // this.pocketTypeService
-    //   .getPocketTypes()
-    //   .pipe(
-    //     mergeMap((list: PocketType[]) => list),
-    //     map((pocketType: PocketType) => pocketType.name),
-    //     mergeMap((typeName: string) => this.getDisplayText(typeName)),
-    //     toArray()
-    //   )
-    //   .subscribe((formattedList: string[]) => {
-    //     this.typeList = formattedList;
-    //     this.busy = false;
-    //   });
 
     this.pocketTypeService
       .getPocketTypes()
@@ -112,6 +86,7 @@ export class PocketTypeListComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe((newType: TMTPocket) => {
       if (newType) {
+        newType.name = this.pocketTypeService.formatName(newType.name, "add");
         this.saveNewType(newType);
       }
     });

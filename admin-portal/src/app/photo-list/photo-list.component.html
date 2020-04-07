@@ -1,44 +1,44 @@
 <div fxLayout="row" fxLayoutAlign="end">
   <mat-chip-list>
-    <mat-chip style="background-color: lawngreen;" (click)="addPhoto()">
+    <mat-chip
+      class="mat-elevation-z8"
+      style="background-color: lawngreen;"
+      (click)="startAdd()"
+    >
       <mat-icon>add</mat-icon>Add Photo
     </mat-chip>
   </mat-chip-list>
 </div>
 
-<div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
+<div fxLayoutAlign="space-evenly center" fxLayout="row wrap" *ngIf="!busy">
   <div *ngFor="let photo of photos">
-    <mat-card>
+    <mat-card class="mat-elevation-z8">
       <mat-card-title>
         <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="startEdit()">
+          <button mat-menu-item (click)="startEdit(photo)">
             <mat-icon>edit</mat-icon>
             <span>Edit Photo</span>
           </button>
-          <button mat-menu-item (click)="startAdd()">
+          <button mat-menu-item (click)="startDelete(photo)">
             <mat-icon>delete</mat-icon>
             <span>Delete Photo</span>
           </button>
         </mat-menu>
         <mat-label class="content"> {{ photo.pocketStyle }}</mat-label>
       </mat-card-title>
-      <img
-        mat-card-image
-        src="{{ photo.photoUrl }}"
-        alt="Photo of a Shiba Inu"
-      />
       <mat-card-content class="content">
         <div fxLayout="row" style="margin-bottom: 10px;">
-          <mat-label
+          <mat-label style="font-size: 12px;"
             >Pocket Type: <span class="label">{{ photo.type }}</span></mat-label
           >
         </div>
-        <mat-label
-          >May Delete this:
-          <span class="label">{{ photo.state }}</span></mat-label
-        >
-      </mat-card-content></mat-card
-    >
+      </mat-card-content>
+      <img
+        fxLayoutAlign="center"
+        mat-card-image
+        src="{{ photo.photoUrl }}"
+        alt="image not found"
+    /></mat-card>
   </div>
 </div>

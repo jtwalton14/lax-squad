@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { PhotoService } from "../services";
-import { TMTColor, TMTPhoto, PocketType } from "packages/objects";
+import { TMTPhoto } from "packages/objects";
 import { MatDialogRef, MatDialog } from "@angular/material/dialog";
 import { AddPhotoDialogComponent } from "./add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
-import { PocketStyle } from "packages/emuns/pocket-style";
-import { State } from "packages/emuns/state";
+import { ConfirmDeleteDialogComponent } from "../confirm-delete-dialog/confirm-delete-dialog.component";
 
 @Component({
   selector: "photo-list",
@@ -28,31 +27,50 @@ export class PhotoListComponent implements OnInit {
     });
   }
 
-  public startEdit(): void {
-    this.photoService.getPhotos().subscribe((stuff: TMTPhoto[]) => {
-      console.log(stuff);
+  public startEdit(selectedPhoto: TMTPhoto): void {
+    const dialogRef: MatDialogRef<AddPhotoDialogComponent> = this.dialog.open(
+      AddPhotoDialogComponent,
+      {
+        data: { photo: selectedPhoto }
+      }
+    );
+    dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
+      if (newPhoto) {
+        this.savePhoto(newPhoto);
+      }
     });
   }
 
   public startAdd(): void {
-    const test: TMTPhoto = new TMTPhoto();
-    test.photoUrl =
-      "https://material.angular.io/assets/img/examples/shiba2.jpg";
-    test.pocketStyle = PocketStyle.CLASSIC;
-    test.state = State.AVAILABLE;
-    test.type = PocketType.MALE;
+    const dialogRef: MatDialogRef<AddPhotoDialogComponent> = this.dialog.open(
+      AddPhotoDialogComponent
+    );
+    dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
+      this.savePhoto(newPhoto);
+    });
+  }
+
+  public savePhoto(newPhoto: TMTPhoto): void {
     this.busy = true;
-    this.photoService.addPhoto(test).subscribe((stuff: TMTPhoto) => {
+    this.photoService.addPhoto(newPhoto).subscribe((savedPhoto: TMTPhoto) => {
       this.loadPhotos();
     });
   }
 
-  public addPhoto(): void {
-    const dialogRef: MatDialogRef<AddPhotoDialogComponent> = this.dialog.open(
-      AddPhotoDialogComponent
+  public startDelete(selectedPhoto: TMTPhoto): void {
+    const dialogRef: MatDialogRef<ConfirmDeleteDialogComponent> = this.dialog.open(
+      ConfirmDeleteDialogComponent
     );
-    dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
-      // this.saveColor(newColor);
+    dialogRef.afterClosed().subscribe((confirmDelete: boolean) => {
+      if (confirmDelete) {
+        this.deletePhoto(selectedPhoto);
+      }
+    });
+  }
+
+  public deletePhoto(photo: TMTPhoto): void {
+    this.photoService.removePhoto(photo).subscribe((deletedPhoto: TMTPhoto) => {
+      this.loadPhotos();
     });
   }
 }

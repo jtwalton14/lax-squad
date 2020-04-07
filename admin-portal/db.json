@@ -42,44 +42,61 @@
       "h": 11,
       "s": 14,
       "l": 16
+    },
+    {
+      "name": "red",
+      "h": 0,
+      "s": 100,
+      "l": 50,
+      "hexValue": "#ff0000",
+      "id": 6
     }
   ],
   "photos": [
     {
-      "name": "Testy Photo",
-      "extention": "png",
-      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "pocketStyle": "CLASSIC",
-      "state": "AVAILABLE",
-      "type": "MALE",
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
       "id": 1
     },
     {
-      "name": "Testy Photo",
-      "extention": "png",
-      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "pocketStyle": "CLASSIC",
-      "state": "AVAILABLE",
-      "type": "MALE",
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
       "id": 2
     },
     {
-      "name": "Testy Photo",
-      "extention": "png",
-      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "pocketStyle": "CLASSIC",
-      "state": "AVAILABLE",
-      "type": "MALE",
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
       "id": 3
     },
     {
-      "name": "Testy Photo",
-      "extention": "png",
-      "photoUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "pocketStyle": "CLASSIC",
-      "state": "AVAILABLE",
-      "type": "MALE",
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
       "id": 4
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 5
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 6
+    },
+    {
+      "id": 7
     }
   ],
   "pocketType": [
@@ -124,68 +141,12 @@
       "id": 10
     },
     {
-      "name": "Whore",
-      "id": 11
+      "name": "TESTY_RP",
+      "id": 28
     },
     {
-      "name": "aeqlnq wrew wecqnq edc",
-      "id": 12
-    },
-    {
-      "name": "ew_wnnwe qo thea",
-      "id": 13
-    },
-    {
-      "name": "sa_da asa",
-      "id": 14
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 15
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 16
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 17
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 18
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 19
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 20
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 21
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 22
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 23
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 24
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 25
-    },
-    {
-      "name": "ajs cowie sa",
-      "id": 26
+      "name": "BISDNBIWFVNO_IOFH_FOIS_OIWHD_FOS",
+      "id": 29
     }
   ]
 }

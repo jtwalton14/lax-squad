@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>Add new pocket here.</h2>
-<div fxLayout="column" fxLayoutGap="10px">
+<div fxLayout="column" fxLayoutGap="10px" *ngIf="selectedPhoto">
   <mat-label>Pocket Styles</mat-label>
   <mat-form-field>
     <mat-select [(ngModel)]="selectedPhoto.pocketStyle">
       <mat-option *ngFor="let style of styles" value="{{ style }}">
-        {{ style }}
+        {{ pocketTypeService.formatName(style, "remove") }}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -12,7 +12,7 @@
   <mat-form-field>
     <mat-select [(ngModel)]="selectedPhoto.type">
       <mat-option value="Men">Men</mat-option>
-      <mat-option value="WOmen">Women</mat-option>
+      <mat-option value="Women">Women</mat-option>
     </mat-select>
   </mat-form-field>
   <div fxLayout="row">
@@ -21,6 +21,7 @@
       ng2FileSelect
       [uploader]="uploader"
       accept=".png, .jpg"
+      (onFileSelected)="onFileSelected($event)"
     />
   </div>
 </div>
@@ -34,7 +35,6 @@
     >
       Submit
     </button>
-    <button mat-raised-button [mat-dialog-close]="true">Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
   </div>
 </mat-dialog-actions>
-<!-- (onFileSelected)="test($event)" -->

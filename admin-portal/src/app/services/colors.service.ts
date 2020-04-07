@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { TMTColor } from "packages/objects";
+import { TMTColor, TmTUser } from "packages/objects";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Http, Response } from "@angular/http";
@@ -45,6 +45,18 @@ export class ColorsService {
     );
     // .toPromise()
     // .catch(this.handleError);
+  }
+
+  public removeColor(colorKey: string): Observable<TMTColor> {
+    return this.http.delete(API_URL + route + colorKey).pipe(
+      map((response: Response) => {
+        const todos: any = response.json();
+
+        return todos;
+      })
+    );
+    // .toPromise()
+    // .catch
   }
 
   private handleError(error: Response | any) {

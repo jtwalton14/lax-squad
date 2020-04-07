@@ -23,13 +23,17 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatButtonModule } from "@angular/material/button";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import * as firebase from "firebase";
 
 import { HttpModule } from "@angular/http";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/pocket-type-list.component";
 import { AddPocketTypeDialogComponent } from "./pocket-type-list/pocket-type-list/add-pocket-type-dialog/add-pocket-type-dialog.component";
-import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
+import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog/confirm-delete-dialog.component";
+import { environment } from "src/environments/environment";
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [

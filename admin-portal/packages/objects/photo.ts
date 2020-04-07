@@ -8,14 +8,9 @@ export class TMTPhoto {
   public pocketStyle: string;
   public state: string;
   public type: string;
+  public id: string;
 
-  constructor(
-    photoUrl?: string,
-    pocketStyle?: string,
-    state?: string,
-    type?: string
-  ) {
-    this.photoUrl = photoUrl ? photoUrl : "";
+  constructor(pocketStyle?: string, state?: string, type?: string) {
     this.pocketStyle = pocketStyle ? pocketStyle : "";
     this.state = state ? state : "";
     this.type = type ? type : "";

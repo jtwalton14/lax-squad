@@ -1,6 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="end">
   <mat-chip-list>
-    <mat-chip style="background-color: lawngreen;" (click)="addColor()">
+    <mat-chip
+      class="mat-elevation-z8"
+      style="background-color: lawngreen;"
+      (click)="addColor()"
+    >
       <mat-icon>add</mat-icon>Add Color</mat-chip
     >
   </mat-chip-list>
@@ -8,7 +12,10 @@
 
 <div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
   <div *ngFor="let color of colors">
-    <mat-card [style.background-color]="color.hexValue">
+    <mat-card
+      [style.background-color]="color.hexValue"
+      class="mat-elevation-z8"
+    >
       <mat-card-title>
         <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
         <mat-menu #menu="matMenu">
@@ -16,7 +23,7 @@
             <mat-icon>edit</mat-icon>
             <span>Edit Color</span>
           </button>
-          <button mat-menu-item (click)="deleteColor(color)">
+          <button mat-menu-item (click)="startDelete(color)">
             <mat-icon>delete</mat-icon>
             <span>Delete Color</span>
           </button>

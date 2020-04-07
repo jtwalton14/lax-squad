@@ -4,6 +4,7 @@ import { TMTPhoto } from "packages/objects";
 import { Http, Response } from "@angular/http";
 import { environment } from "src/environments/environment";
 import { map } from "rxjs/operators";
+
 const API_URL = environment.apiUrl;
 const route = "/photos/";
 
@@ -54,7 +55,7 @@ export class PhotoService {
   }
 
   public removePhoto(photo: TMTPhoto): Observable<TMTPhoto> {
-    return this.http.post(API_URL + route, photo).pipe(
+    return this.http.delete(API_URL + route + photo.id).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 

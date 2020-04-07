@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Http, Response } from "@angular/http";
-import { Observable, from, of } from "rxjs";
+import { Observable, from, of, pipe } from "rxjs";
 import { map, mergeMap, toArray } from "rxjs/operators";
 import { TMTPocket } from "packages/objects/pocketType";
 
@@ -25,8 +25,7 @@ export class PocketTypeService {
   }
 
   public savePocket(pocket: TMTPocket): Observable<TMTPocket> {
-    return this.formatNames(pocket, "out").pipe(
-      mergeMap((t: TMTPocket) => this.http.put(API_URL + route + t.id, t)),
+    return this.http.put(API_URL + route + pocket.id, pocket).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 
@@ -38,8 +37,9 @@ export class PocketTypeService {
   }
 
   public saveNewPocket(pocket: TMTPocket): Observable<TMTPocket> {
-    return this.formatNames(pocket, "out").pipe(
-      mergeMap((t: TMTPocket) => this.http.post(API_URL + route, pocket)),
+    pocket.name = pocket.name.toLocaleUpperCase();
+
+    return this.http.post(API_URL + route, pocket).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 
@@ -65,35 +65,10 @@ export class PocketTypeService {
     return Observable.throw(error);
   }
 
-  public formatNames(
-    newType: TMTPocket,
-    stream: string
-  ): Observable<TMTPocket> {
-    console.log(newType);
-    return from(newType.name).pipe(
-      mergeMap((letter: string) => {
-        if (letter === "_") {
-          return " ";
-        } else {
-          return letter;
-        }
-      }),
-      toArray(),
-      map((changedString: string[]) => changedString.join(""))
-    );
-  }
-  //   map((letter: string) => {
-  //     console.log(letter);
+  public formatName(name: string, stream: string): string {
+    const searchString = stream === "remove" ? "_" : " ";
+    const replaceString = stream === "remove" ? " " : "_";
 
-  //     return newType;
-  //     // if (stream === "in") {
-  //     //   letter = letter.replace("_", "");
-  //     //   return of(letter);
-  //     // } else if (stream === "out") {
-  //     //   letter = letter.replace(" ", "_");
-  //     //   console.log(letter);
-  //     //   return of(letter);
-  //     // }
-  //   })
-  // );
+    return name.replace(new RegExp(searchString, "g"), replaceString);
+  }
 }

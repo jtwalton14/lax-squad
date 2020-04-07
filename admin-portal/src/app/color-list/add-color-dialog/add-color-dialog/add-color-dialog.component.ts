@@ -23,9 +23,4 @@ export class AddColorDialogComponent implements OnInit {
   public check(): void {
     console.log(this.selectedColor);
   }
-
-  // public test(idk: any): void {
-  //   console.log(idk.target.value);
-  //   console.log(this.testt);
-  // }
 }
