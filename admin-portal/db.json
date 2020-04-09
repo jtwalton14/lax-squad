@@ -1,0 +1,152 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "todos": [
+    {
+      "id": 1,
+      "title": "Read SitePoint article",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Clean inbox",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "title": "Make restaurant reservation",
+      "complete": false
+    }
+  ],
+  "colors": [
+    {
+      "hexValue": "#0aff1b",
+      "name": "testy",
+      "hsvValue": "weouarn",
+      "id": 5,
+      "h": 11,
+      "s": 14,
+      "l": 16
+    },
+    {
+      "name": "red",
+      "h": 0,
+      "s": 100,
+      "l": 50,
+      "hexValue": "#ff0000",
+      "id": 6
+    }
+  ],
+  "photos": [
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 1
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 2
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 3
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 4
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 5
+    },
+    {
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "pocketStyle": "PITA",
+      "state": "",
+      "type": "Men",
+      "id": 6
+    },
+    {
+      "id": 7
+    }
+  ],
+  "pocketType": [
+    {
+      "name": "CLASSIC",
+      "id": 1
+    },
+    {
+      "name": "PITA",
+      "id": 2
+    },
+    {
+      "name": "TRAD_X",
+      "id": 3
+    },
+    {
+      "name": "STANWICK",
+      "id": 4
+    },
+    {
+      "name": "O_CHANNEL",
+      "id": 5
+    },
+    {
+      "name": "RELEASE",
+      "id": 6
+    },
+    {
+      "name": "LADDER",
+      "id": 7
+    },
+    {
+      "name": "MESH_RUNNER",
+      "id": 8
+    },
+    {
+      "name": "MENS_CORNER",
+      "id": 9
+    },
+    {
+      "name": "SINGLE_TWIST_PITA",
+      "id": 10
+    },
+    {
+      "name": "TESTY_RP",
+      "id": 28
+    },
+    {
+      "name": "BISDNBIWFVNO_IOFH_FOIS_OIWHD_FOS",
+      "id": 29
+    }
+  ]
+}

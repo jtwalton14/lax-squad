@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Add new pocket type here.</h2>
+<div fxLayout="column" fxLayoutGap="10px">
+  <mat-form-field>
+    <input matInput [(ngModel)]="type.name" />
+    <mat-hint>Enter pocket style here.</mat-hint>
+  </mat-form-field>
+</div>
+<mat-dialog-actions style="float: right;">
+  <div fxLayout="row">
+    <button mat-raised-button color="primary" [mat-dialog-close]="type">
+      Submit
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+  </div>
+</mat-dialog-actions>
