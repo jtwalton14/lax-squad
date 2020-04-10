@@ -12,15 +12,25 @@ export class AddColorDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data?: any) {}
 
+  public get saveDisabled(): boolean {
+    return (
+      this.selectedColor.name === "" ||
+      this.selectedColor.hexValue === "" ||
+      this.selectedColor.hexValue === "" ||
+      this.selectedColor.h === 0 ||
+      this.selectedColor.s === 0 ||
+      this.selectedColor.l === 0 ||
+      // tslint:disable-next-line:radix
+      !isNaN(parseInt(this.selectedColor.name)) ||
+      this.selectedColor.hexValue.length === 6
+    );
+  }
+
   ngOnInit(): void {
     if (this.data != null) {
-      this.selectedColor = this.data.selectedColor;
+      this.selectedColor = JSON.parse(JSON.stringify(this.data.selectedColor));
     } else {
       this.selectedColor = new TMTColor();
     }
-  }
-
-  public check(): void {
-    console.log(this.selectedColor);
   }
 }

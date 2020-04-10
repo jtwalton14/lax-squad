@@ -25,20 +25,34 @@
             <span>Delete Photo</span>
           </button>
         </mat-menu>
-        <mat-label class="content"> {{ photo.pocketStyle }}</mat-label>
       </mat-card-title>
       <mat-card-content class="content">
-        <div fxLayout="row" style="margin-bottom: 10px;">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <img
+            fxLayoutAlign="center"
+            mat-card-image
+            src="{{ photo.photoUrl }}"
+            alt="image not found"
+            (click)="showImage(photo)"
+          />
+        </div>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center"
+          style="margin-bottom: 10px; "
+        >
+          <mat-label> {{ photo.pocketStyle }}</mat-label>
+        </div>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center"
+          style="margin-bottom: 10px; "
+        >
           <mat-label style="font-size: 12px;"
             >Pocket Type: <span class="label">{{ photo.type }}</span></mat-label
           >
         </div>
       </mat-card-content>
-      <img
-        fxLayoutAlign="center"
-        mat-card-image
-        src="{{ photo.photoUrl }}"
-        alt="image not found"
-    /></mat-card>
+    </mat-card>
   </div>
 </div>

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AddColorDialogComponent } from './add-color-dialog.component';
+import { AddColorDialogComponent } from "../color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 
-describe('AddColorDialogComponent', () => {
+describe("AddColorDialogComponent", () => {
   let component: AddColorDialogComponent;
   let fixture: ComponentFixture<AddColorDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddColorDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [AddColorDialogComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('AddColorDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

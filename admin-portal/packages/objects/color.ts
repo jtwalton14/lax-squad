@@ -18,6 +18,6 @@ export class TMTColor {
     this.h = h ? h : 0;
     this.s = s ? s : 0;
     this.l = l ? l : 0;
-    this.hexValue = hexValue ? hexValue : "#";
+    this.hexValue = hexValue ? hexValue : "";
   }
 }

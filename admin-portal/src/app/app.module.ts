@@ -32,6 +32,7 @@ import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/poc
 import { AddPocketTypeDialogComponent } from "./pocket-type-list/pocket-type-list/add-pocket-type-dialog/add-pocket-type-dialog.component";
 import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog/confirm-delete-dialog.component";
 import { environment } from "src/environments/environment";
+import { ShowPictureDialogComponent } from "./show-picture-dialog/show-picture-dialog.component";
 
 firebase.initializeApp(environment.firebase);
 
@@ -45,7 +46,8 @@ firebase.initializeApp(environment.firebase);
     AddPhotoDialogComponent,
     PocketTypeListComponent,
     AddPocketTypeDialogComponent,
-    ConfirmDeleteDialogComponent
+    ConfirmDeleteDialogComponent,
+    ShowPictureDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ColorListComponent } from './color-list.component';
+import { ColorListComponent } from "../color-list/color-list.component";
 
-describe('ColorListComponent', () => {
+describe("ColorListComponent", () => {
   let component: ColorListComponent;
   let fixture: ComponentFixture<ColorListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorListComponent ]
-    })
-    .compileComponents();
+      declarations: [ColorListComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ColorListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

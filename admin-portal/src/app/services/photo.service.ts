@@ -44,8 +44,8 @@ export class PhotoService {
     );
   }
 
-  public savePhoto(newPhoto: TMTPhoto): Observable<TMTPhoto> {
-    return this.http.put(API_URL + route, newPhoto).pipe(
+  public updatePhoto(newPhoto: TMTPhoto): Observable<TMTPhoto> {
+    return this.http.put(API_URL + route + newPhoto.id, newPhoto).pipe(
       map((response: Response) => {
         const todos: any = response.json();
 

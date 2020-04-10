@@ -4,6 +4,7 @@ import { TMTPhoto } from "packages/objects";
 import { MatDialogRef, MatDialog } from "@angular/material/dialog";
 import { AddPhotoDialogComponent } from "./add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 import { ConfirmDeleteDialogComponent } from "../confirm-delete-dialog/confirm-delete-dialog.component";
+import { ShowPictureDialogComponent } from "../show-picture-dialog/show-picture-dialog.component";
 
 @Component({
   selector: "photo-list",
@@ -21,6 +22,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   public loadPhotos(): void {
+    this.busy = true;
     this.photoService.getPhotos().subscribe((photos: TMTPhoto[]) => {
       this.photos = photos;
       this.busy = false;
@@ -36,7 +38,7 @@ export class PhotoListComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
       if (newPhoto) {
-        this.savePhoto(newPhoto);
+        this.updatePhoto(newPhoto);
       }
     });
   }
@@ -46,15 +48,22 @@ export class PhotoListComponent implements OnInit {
       AddPhotoDialogComponent
     );
     dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
-      this.savePhoto(newPhoto);
+      this.saveNewPhoto(newPhoto);
     });
   }
 
-  public savePhoto(newPhoto: TMTPhoto): void {
-    this.busy = true;
+  public saveNewPhoto(newPhoto: TMTPhoto): void {
     this.photoService.addPhoto(newPhoto).subscribe((savedPhoto: TMTPhoto) => {
       this.loadPhotos();
     });
+  }
+
+  public updatePhoto(newPhoto: TMTPhoto): void {
+    this.photoService
+      .updatePhoto(newPhoto)
+      .subscribe((savedPhoto: TMTPhoto) => {
+        this.loadPhotos();
+      });
   }
 
   public startDelete(selectedPhoto: TMTPhoto): void {
@@ -72,5 +81,14 @@ export class PhotoListComponent implements OnInit {
     this.photoService.removePhoto(photo).subscribe((deletedPhoto: TMTPhoto) => {
       this.loadPhotos();
     });
+  }
+
+  public showImage(selectedPhoto: TMTPhoto): void {
+    const dialogRef: MatDialogRef<ShowPictureDialogComponent> = this.dialog.open(
+      ShowPictureDialogComponent,
+      {
+        data: { photo: selectedPhoto }
+      }
+    );
   }
 }
