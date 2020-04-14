@@ -61,7 +61,7 @@
       "id": 1
     },
     {
-      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FrgbPocket.jpg?alt=media&token=489de0fe-64b9-41c4-ae24-ec195d6fa969",
+      "photoUrl": "https://firebasestorage.googleapis.com/v0/b/tmtlax-dev.appspot.com/o/pocketImages%2FLax%20Pocket.png?alt=media&token=49c6e4e8-2b6b-4cff-b9f2-5e179acdb9de",
       "pocketStyle": "PITA",
       "state": "",
       "type": "Men",
@@ -94,9 +94,6 @@
       "state": "",
       "type": "Men",
       "id": 6
-    },
-    {
-      "id": 7
     }
   ],
   "pocketType": [

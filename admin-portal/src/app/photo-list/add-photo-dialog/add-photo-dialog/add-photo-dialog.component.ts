@@ -63,7 +63,7 @@ export class AddPhotoDialogComponent implements OnInit {
         this.styles = typeList;
       });
     if (this.data != null) {
-      this.selectedPhoto = this.data.photo;
+      this.selectedPhoto = JSON.parse(JSON.stringify(this.data.photo));
     }
   }
 
