@@ -1,0 +1,17 @@
+<!-- <div class="toolbar mat-elevation-z8"></div> -->
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened
+    ><mat-nav-list>
+      <mat-list-item routerLink="photo-list">
+        Photos
+      </mat-list-item>
+      <mat-list-item routerLink="color-list">
+        Colors
+      </mat-list-item>
+      <mat-list-item routerLink="pocket-type-list">
+        Pocket Types
+      </mat-list-item>
+    </mat-nav-list></mat-sidenav
+  >
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>

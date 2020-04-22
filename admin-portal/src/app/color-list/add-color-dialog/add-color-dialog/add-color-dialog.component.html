@@ -1,0 +1,61 @@
+<div style="max-width: 300px;" *ngIf="selectedColor">
+  <h1 style="margin-top: -15px; text-align: center;">Add New Color</h1>
+  <a href="https://www.w3schools.com/colors/colors_hsl.asp" target="_blank">
+    Click me to find color values</a
+  >
+  <div fxLayout="column" fxLayoutGap="10px">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="selectedColor.name" />
+      <mat-hint>Name of Color</mat-hint>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="360"
+          [(ngModel)]="selectedColor.h"
+        />
+        <mat-hint>HSL Value </mat-hint>
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="100"
+          [(ngModel)]="selectedColor.s"
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input
+          matInput
+          type="number"
+          min="0"
+          max="100"
+          [(ngModel)]="selectedColor.l"
+        />
+        <mat-hint style="font-size: 10.5px;">ex: (61, 100, 32)</mat-hint>
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="selectedColor.hexValue" />
+      <mat-hint> Hex Value ex: #ffff0a (dont add '#')</mat-hint>
+      <mat-error *ngIf="true">Must be 6 characters</mat-error>
+    </mat-form-field>
+  </div>
+</div>
+<mat-dialog-actions style="float: right;">
+  <div fxLayout="row">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="saveDisabled"
+      [mat-dialog-close]="selectedColor"
+    >
+      Submit
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+  </div>
+</mat-dialog-actions>

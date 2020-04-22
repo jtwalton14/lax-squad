@@ -30,7 +30,8 @@ int main()
 	//Mat img = imread("rgb.jpg");
 	//Mat img = imread("threeColorNet.jpg");
 	//Mat img = imread("orange_blackNet.jpg");
-	Mat img = imread("rgbPocket.jpg");
+	//Mat img = imread("lace.png");
+	Mat img = imread("fullPocket.jpg");
 
 	Mat hsv;
 	cvtColor(img, hsv, COLOR_BGR2HSV);
@@ -58,27 +59,23 @@ int main()
 				l = whiteShift(l);
 			
 			}*/
-			/*else*/ if ((h < 15 || h > 165) && s > 30){
+			/*else*/ if ((h <= 15 || h >= 165) && s > 30){
 				h = redShift(h);
-
-				
 			}
-			else if (h < 45 && h > 15) {
+			else if ((h < 45 && h > 15) && s > 30) {
 				h = yellowShift(h);
 			}
-			else if (h < 75 && h > 45) {
+			else if ((h < 75 && h > 45) && s > 30) {
 				h = greenShift(h);
 
-				//s = 0;
-				//l = whiteShift(l);
 			}
-			else if (h < 105 && h > 75) {
+			else if ((h < 105 && h > 75) && s > 30) {
 				h = lightBlueShift(h);
 			}
-			else if (h < 135 && h > 105) {
+			else if ((h < 135 && h > 105) && s > 30) {
 				h = darkBlueShift(h);
 			}
-			else if (h < 165 && h > 135) {
+			else if ((h < 165 && h > 135) && s > 30) {
 				h = pinkShift(h);
 			}
 
@@ -121,7 +118,7 @@ unsigned char yellowShift(unsigned char h) {
 }
 
 unsigned char greenShift(unsigned char h) {
-	const unsigned char hue_shift = 30;
+	const unsigned char hue_shift = 0;
 
 	if (h + hue_shift > 75)
 		h = (h + hue_shift) - 75;
@@ -154,7 +151,7 @@ unsigned char darkBlueShift(unsigned char h) {
 }
 
 unsigned char pinkShift(unsigned char h) {
-	const unsigned char hue_shift = 0;
+	const unsigned char hue_shift = 60;
 
 	if (h + hue_shift > 165)
 		h = (h + hue_shift) - 165;

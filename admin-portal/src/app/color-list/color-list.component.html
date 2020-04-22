@@ -1,0 +1,46 @@
+<div fxLayout="row" fxLayoutAlign="end">
+  <mat-chip-list>
+    <mat-chip
+      class="mat-elevation-z8"
+      style="background-color: lawngreen;"
+      (click)="addColor()"
+    >
+      <mat-icon>add</mat-icon>Add Color</mat-chip
+    >
+  </mat-chip-list>
+</div>
+
+<div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="!busy">
+  <div *ngFor="let color of colors">
+    <mat-card
+      [style.background-color]="color.hexValue"
+      class="mat-elevation-z8"
+    >
+      <mat-card-title>
+        <mat-icon [matMenuTriggerFor]="menu" class="menue">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="startEdit(color)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit Color</span>
+          </button>
+          <button mat-menu-item (click)="startDelete(color)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Color</span>
+          </button>
+        </mat-menu>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="colorDescription">
+          <h1 mat-card-title>Color: {{ color.name }}</h1>
+          <h3 mat-card-title>
+            HSV Value: {{ color.h }}, {{ color.s }}, {{ color.l }}
+          </h3>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayoutAlign="space-evenly none" fxLayout="row wrap" *ngIf="busy">
+  <mat-spinner></mat-spinner>
+</div>
