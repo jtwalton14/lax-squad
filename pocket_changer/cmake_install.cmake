@@ -1,4 +1,4 @@
-# Install script for directory: /home/marczaka/lax-squad/pocket_changer
+# Install script for directory: /home/jtwalton/lax-squad/pocket_changer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/marczaka/lax-squad/pocket_changer/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jtwalton/lax-squad/pocket_changer/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

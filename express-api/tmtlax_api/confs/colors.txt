@@ -1,0 +1,8 @@
+red 180
+yellow 30
+green 60
+lightBlue 90
+darkBlue 120
+pink 160
+black 0
+white 0

@@ -9,8 +9,11 @@
 using namespace cv;
 using namespace std;
 
-vector<string> colors = {"red", "yellow", "green", "lightBlue", "darkBlue", "pink", "black", "white"};
-vector<int> hueVal = {180, 30, 60, 90, 120, 160, 0, 0};
+vector<string> colors;
+vector<int> hueVal;
+vector<string> images;
+// vector<string> colors = {"red", "yellow", "green", "lightBlue", "darkBlue", "pink", "black", "white"};
+// vector<int> hueVal = {180, 30, 60, 90, 120, 160, 0, 0};
 unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right);
 unsigned char blueShift(unsigned char h, int hue_shift);
 unsigned char greenShift(unsigned char h, int hue_shift);
@@ -18,18 +21,19 @@ unsigned char redShift(unsigned char h, int hue_shift);
 unsigned char blackShift(unsigned char l);
 unsigned char whiteShift(unsigned char l);
 int findColor(string col);
-
+void openFiles(vector<string> &colors, vector<int> &hueVal, vector<string> &images);
 
 int main(int argc, char *argv[])
-
 {
-
+    openFiles(colors, hueVal, images);
     //open file
-    Mat img = imread(argv[1]); // loads image from first argument
+    string imageIndex = images[stoi(argv[1])];
+    string image = "img/" + imageIndex;
+    Mat img = imread(image); // loads image from first argument
+    //Mat img = imread(argv[1]);
     int leftColor = findColor(argv[2]);
     int middleColor = findColor(argv[3]);
     int rightColor = findColor(argv[4]);
-
 
     Mat hsv;
     cvtColor(img, hsv, COLOR_BGR2HSV);
@@ -44,7 +48,7 @@ int main(int argc, char *argv[])
             h = colorShift(h, s, l, leftColor, middleColor, rightColor);
             hsv.at<Vec3b>(j, i)[0] = h;
             hsv.at<Vec3b>(j, i)[1] = s;
-			hsv.at<Vec3b>(j, i)[2] = l;
+            hsv.at<Vec3b>(j, i)[2] = l;
         }
     }
 
@@ -63,11 +67,13 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = blueShift(h, hueVal[left]);
 
-        if (colors[left] == "black" && s > 30){
+        if (colors[left] == "black" && s > 30)
+        {
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[left] == "white" && s > 30){
+        else if (colors[left] == "white" && s > 30)
+        {
             s = 0;
             l = whiteShift(l);
         }
@@ -77,11 +83,13 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = greenShift(h, hueVal[middle]);
 
-        if (colors[middle] == "black" && s > 30){
+        if (colors[middle] == "black" && s > 30)
+        {
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[middle] == "white" && s > 30){
+        else if (colors[middle] == "white" && s > 30)
+        {
             s = 0;
             l = whiteShift(l);
         }
@@ -91,11 +99,13 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
     {
         h = redShift(h, hueVal[right]);
 
-        if (colors[right] == "black" && s > 30){
+        if (colors[right] == "black" && s > 30)
+        {
             s = 0;
             l = blackShift(l);
         }
-        else if (colors[right] == "white" && s > 30){
+        else if (colors[right] == "white" && s > 30)
+        {
             s = 0;
             l = whiteShift(l);
         }
@@ -150,30 +160,64 @@ int findColor(string col)
 unsigned char blackShift(unsigned char l)
 {
 
-	const unsigned char light_shift = 150;
+    const unsigned char light_shift = 150;
 
-	if (l - light_shift <= 0) {
-		l = 0;
-	}
-	else {
-		l -= light_shift;
-	}
+    if (l - light_shift <= 0)
+    {
+        l = 0;
+    }
+    else
+    {
+        l -= light_shift;
+    }
 
-	return l;
+    return l;
 }
 
 unsigned char whiteShift(unsigned char l)
 {
 
-	const unsigned char light_shift = 0;
+    const unsigned char light_shift = 0;
 
-	if (l + light_shift >= 255) {
-		l = 255;
-	}
-	else {
-		l += light_shift;
-	}
+    if (l + light_shift >= 255)
+    {
+        l = 255;
+    }
+    else
+    {
+        l += light_shift;
+    }
 
-	return l;
+    return l;
 }
 
+void openFiles(vector<string> &colors, vector<int> &hueVal, vector<string> &images)
+{
+    ifstream inFile;
+
+    int num = 0;
+    string tmp;
+    int tmp2;
+    string tmp3;
+    inFile.open("confs/colors.txt");
+    while (!inFile.eof())
+    {
+        inFile >> tmp;
+        colors.push_back(tmp);
+        inFile >> tmp2;
+        hueVal.push_back(tmp2);
+
+        ++num;
+    }
+    inFile.close();
+    
+    num = 0;
+    inFile.open("confs/pockets.txt");
+    while (!inFile.eof())
+    {
+        inFile >> tmp3;
+        images.push_back(tmp3);
+        ++num;
+    }
+    inFile.close();
+}
