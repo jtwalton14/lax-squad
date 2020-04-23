@@ -35,21 +35,44 @@
   ],
   "colors": [
     {
-      "hexValue": "#0aff1b",
-      "name": "testy",
-      "hsvValue": "weouarn",
-      "id": 5,
-      "h": 11,
-      "s": 14,
-      "l": 16
-    },
-    {
       "name": "red",
       "h": 0,
       "s": 100,
       "l": 50,
       "hexValue": "#ff0000",
       "id": 6
+    },
+    {
+      "name": "yellow",
+      "h": 60,
+      "s": 100,
+      "l": 50,
+      "hexValue": "#ffff00",
+      "id": 7
+    },
+    {
+      "name": "green",
+      "h": 116,
+      "s": 100,
+      "l": 50,
+      "hexValue": "#11ff00",
+      "id": 8
+    },
+    {
+      "name": "blue",
+      "h": 240,
+      "s": 100,
+      "l": 50,
+      "hexValue": "#0000ff",
+      "id": 9
+    },
+    {
+      "name": "pink",
+      "h": 300,
+      "s": 100,
+      "l": 85,
+      "hexValue": "#ffb3ff",
+      "id": 10
     }
   ],
   "photos": [
@@ -94,9 +117,6 @@
       "state": "",
       "type": "Men",
       "id": 6
-    },
-    {
-      "id": 7
     }
   ],
   "pocketType": [
@@ -139,14 +159,6 @@
     {
       "name": "SINGLE_TWIST_PITA",
       "id": 10
-    },
-    {
-      "name": "TESTY_RP",
-      "id": 28
-    },
-    {
-      "name": "BISDNBIWFVNO_IOFH_FOIS_OIWHD_FOS",
-      "id": 29
     }
   ]
 }

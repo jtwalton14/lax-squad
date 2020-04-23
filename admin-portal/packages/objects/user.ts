@@ -1,4 +1,6 @@
 export class TmTUser {
-  public key: string;
+  // public id: string;
   public name: string;
+  public email: string;
+  public uid: string;
 }

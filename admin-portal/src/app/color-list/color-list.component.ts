@@ -1,14 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ColorsService } from "../services";
-import { TMTColor, TmTUser } from "packages/objects";
+import { TMTColor } from "packages/objects";
 import { AddColorDialogComponent } from "./add-color-dialog/add-color-dialog/add-color-dialog.component";
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { ConfirmDeleteDialogComponent } from "../confirm-delete-dialog/confirm-delete-dialog.component";
-import { from } from "rxjs";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -36,6 +31,7 @@ export class ColorListComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
       if (newColor) {
+        newColor.hexValue = "#" + newColor.hexValue;
         this.saveColor(newColor);
       }
     });
@@ -47,8 +43,8 @@ export class ColorListComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
       if (newColor) {
+        newColor.hexValue = "#" + newColor.hexValue;
         this.saveNewColor(newColor);
-        this.loadColors();
       }
     });
   }
@@ -91,14 +87,5 @@ export class ColorListComponent implements OnInit {
       this.colors = stuff;
       this.busy = false;
     });
-  }
-
-  private checkHex(hex: string): string {
-    if (hex.includes("#", 1)) {
-      hex.replace(new RegExp("#", "g"), "");
-      return "#" + hex;
-    } else {
-      return (hex = "#" + hex);
-    }
   }
 }
