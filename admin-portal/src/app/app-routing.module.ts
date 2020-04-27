@@ -6,13 +6,12 @@ import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/poc
 import { LoginPageComponent } from "./login-page/login-page.component";
 
 const routes: Routes = [
-  { path: "", component: LoginPageComponent },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "photo-list", component: PhotoListComponent },
   { path: "color-list", component: ColorListComponent },
   { path: "pocket-type-list", component: PocketTypeListComponent },
   { path: "login", component: LoginPageComponent },
 ];
-// canActivate: [AuthGuard];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

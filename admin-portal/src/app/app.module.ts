@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 import { HttpModule } from "@angular/http";
+import { CookieService } from "ngx-cookie-service";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/pocket-type-list.component";
@@ -85,7 +86,7 @@ firebase.initializeApp(environment.firebase);
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent, SideBarComponent],
 })
 export class AppModule {}

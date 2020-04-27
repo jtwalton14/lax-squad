@@ -4,6 +4,7 @@ import { AuthService } from "../services/auth.service";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { RecoveryEmailDialogComponent } from "./recovery-email-dialog/recovery-email-dialog/recovery-email-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-login-page",
@@ -20,13 +21,14 @@ export class LoginPageComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    public dialogRef: MatDialogRef<LoginPageComponent>,
+    private snackBar: MatSnackBar,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {}
 
   public submit(): void {
-    console.log(this.canLogin);
     if (this.canLogin) {
       this.login();
     } else {
@@ -36,10 +38,12 @@ export class LoginPageComponent implements OnInit {
 
   public login(): void {
     this.authService.login(this.loginForm.value).then(
-      (res) => {},
+      (res) => {
+        this.dialogRef.close(true);
+        this.cookieService.set("authed", "true", 0.5);
+      },
       (err) => {
         this.snackBar.open(err.message, "close", { duration: 4000 });
-        console.log(err);
       }
     );
   }
@@ -47,7 +51,6 @@ export class LoginPageComponent implements OnInit {
   public register(): void {
     this.authService.register(this.loginForm.value).then(
       (res) => {
-        console.log(res);
         this.snackBar.open(res.user.email + "was added", "close", {
           duration: 2000,
         });

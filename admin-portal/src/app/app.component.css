@@ -21,20 +21,6 @@ mat-sidenav-container {
   height: 100%;
 }
 
-.toolbar {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #747e81;
-  color: white;
-  font-weight: 600;
-  background-image: url(../images/tmtLaxLoge.png);
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: 70px;
-  text-align: center;
-}
-
 mat-sidenav {
   height: 100vh;
   background-color: #747e81;
