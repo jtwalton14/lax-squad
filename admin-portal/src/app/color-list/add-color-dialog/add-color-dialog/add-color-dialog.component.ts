@@ -17,11 +17,10 @@ export class AddColorDialogComponent implements OnInit {
       this.selectedColor.name === "" ||
       this.selectedColor.hexValue === "" ||
       this.selectedColor.hexValue === "" ||
-      this.selectedColor.h === 0 ||
-      this.selectedColor.s === 0 ||
-      this.selectedColor.l === 0 ||
+      this.selectedColor.h == null ||
+      this.selectedColor.s == null ||
+      this.selectedColor.l == null ||
       // tslint:disable-next-line:radix
-      !isNaN(parseInt(this.selectedColor.name)) ||
       !(this.selectedColor.hexValue.length === 6) ||
       this.selectedColor.hexValue.includes("#")
     );
@@ -30,6 +29,10 @@ export class AddColorDialogComponent implements OnInit {
   ngOnInit(): void {
     if (this.data != null) {
       this.selectedColor = JSON.parse(JSON.stringify(this.data.selectedColor));
+      this.selectedColor.hexValue = this.selectedColor.hexValue.replace(
+        "#",
+        ""
+      );
     } else {
       this.selectedColor = new TMTColor();
     }
