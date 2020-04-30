@@ -19,21 +19,20 @@ export class AppComponent implements OnInit {
     private cookieService: CookieService
   ) {}
   ngOnInit(): void {
-    this.cookieService.delete("authed");
     if (this.cookieService.get("authed") === "true") {
       this.authed = true;
-    } else {
-      const dialogRef: MatDialogRef<LoginPageComponent> = this.dialog.open(
-        LoginPageComponent,
-        { disableClose: true }
-      );
-      dialogRef.afterClosed().subscribe((authed: boolean) => {
-        console.log(this.cookieService.get("authed"));
-        if (authed) {
-          this.authed = authed;
-          this.router.navigate(["./photo-list"]);
-        }
-      });
+      this.letThrough();
     }
+  }
+
+  public checkAuth(isAuthed: boolean): void {
+    this.authed = isAuthed;
+    if (isAuthed) {
+      this.letThrough();
+    }
+  }
+
+  public letThrough(): void {
+    this.router.navigate(["./photo-list"]);
   }
 }

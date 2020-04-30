@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
@@ -12,6 +12,7 @@ import { CookieService } from "ngx-cookie-service";
   styleUrls: ["./login-page.component.css"],
 })
 export class LoginPageComponent implements OnInit {
+  @Output() authChanged: EventEmitter<boolean> = new EventEmitter();
   public loginForm = new FormGroup({
     email: new FormControl(),
     password: new FormControl(),
@@ -21,7 +22,6 @@ export class LoginPageComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public dialog: MatDialog,
-    public dialogRef: MatDialogRef<LoginPageComponent>,
     private snackBar: MatSnackBar,
     private cookieService: CookieService
   ) {}
@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
   public login(): void {
     this.authService.login(this.loginForm.value).then(
       (res) => {
-        this.dialogRef.close(true);
+        this.authChanged.emit(true);
         this.cookieService.set("authed", "true", 0.5);
       },
       (err) => {

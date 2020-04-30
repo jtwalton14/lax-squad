@@ -16,3 +16,11 @@ mat-card {
 mat-chip-list {
   padding-top: 0.75em;
 }
+
+.help {
+  position: absolute;
+  right: 0.5%;
+  bottom: 2%;
+  background-color: #747e81;
+  color: #e8e8e8;
+}
