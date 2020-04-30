@@ -16,8 +16,8 @@ export class TMTColor {
   ) {
     this.name = name ? name : "";
     this.h = h ? h : 0;
-    this.s = s ? s : 0;
-    this.l = l ? l : 0;
+    this.s = s ? s : 100;
+    this.l = l ? l : 50;
     this.hexValue = hexValue ? hexValue : "";
   }
 }

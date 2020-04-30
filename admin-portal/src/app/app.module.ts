@@ -24,8 +24,14 @@ import { MatButtonModule } from "@angular/material/button";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import * as firebase from "firebase";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 import { HttpModule } from "@angular/http";
+import { CookieService } from "ngx-cookie-service";
 import { AddColorDialogComponent } from "./color-list/add-color-dialog/add-color-dialog/add-color-dialog.component";
 import { AddPhotoDialogComponent } from "./photo-list/add-photo-dialog/add-photo-dialog/add-photo-dialog.component";
 import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/pocket-type-list.component";
@@ -33,6 +39,8 @@ import { AddPocketTypeDialogComponent } from "./pocket-type-list/pocket-type-lis
 import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog/confirm-delete-dialog.component";
 import { environment } from "src/environments/environment";
 import { ShowPictureDialogComponent } from "./show-picture-dialog/show-picture-dialog.component";
+import { LoginPageComponent } from "./login-page/login-page.component";
+import { RecoveryEmailDialogComponent } from "./login-page/recovery-email-dialog/recovery-email-dialog/recovery-email-dialog.component";
 
 firebase.initializeApp(environment.firebase);
 
@@ -47,7 +55,9 @@ firebase.initializeApp(environment.firebase);
     PocketTypeListComponent,
     AddPocketTypeDialogComponent,
     ConfirmDeleteDialogComponent,
-    ShowPictureDialogComponent
+    ShowPictureDialogComponent,
+    LoginPageComponent,
+    RecoveryEmailDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,21 +67,26 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     MatSidenavModule,
     MatCardModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatIconModule,
     HttpModule,
     MatChipsModule,
     FormsModule,
     MatDialogModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
     FileUploadModule,
     MatSelectModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
-  bootstrap: [AppComponent, SideBarComponent]
+  providers: [CookieService],
+  bootstrap: [AppComponent, SideBarComponent],
 })
 export class AppModule {}

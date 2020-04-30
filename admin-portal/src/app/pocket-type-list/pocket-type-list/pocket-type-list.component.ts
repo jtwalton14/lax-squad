@@ -11,7 +11,7 @@ import { TmTUser } from "packages/objects";
 @Component({
   selector: "pocket-type-list",
   templateUrl: "./pocket-type-list.component.html",
-  styleUrls: ["./pocket-type-list.component.css"]
+  styleUrls: ["./pocket-type-list.component.css"],
 })
 export class PocketTypeListComponent implements OnInit {
   public typeList: TMTPocket[];
@@ -29,7 +29,7 @@ export class PocketTypeListComponent implements OnInit {
     const dialogRef: MatDialogRef<AddPocketTypeDialogComponent> = this.dialog.open(
       AddPocketTypeDialogComponent,
       {
-        data: { selectedType: type }
+        data: { selectedType: type },
       }
     );
     dialogRef.afterClosed().subscribe((newType: TMTPocket) => {
@@ -72,7 +72,6 @@ export class PocketTypeListComponent implements OnInit {
   }
 
   public saveList(newType: TMTPocket): void {
-    // this.typeList[index] = newType;
     this.pocketTypeService
       .savePocket(newType)
       .subscribe((newList: TMTPocket) => {

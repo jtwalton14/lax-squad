@@ -9,7 +9,7 @@ import { ShowPictureDialogComponent } from "../show-picture-dialog/show-picture-
 @Component({
   selector: "photo-list",
   templateUrl: "./photo-list.component.html",
-  styleUrls: ["./photo-list.component.css"]
+  styleUrls: ["./photo-list.component.css"],
 })
 export class PhotoListComponent implements OnInit {
   public photos: TMTPhoto[];
@@ -33,7 +33,7 @@ export class PhotoListComponent implements OnInit {
     const dialogRef: MatDialogRef<AddPhotoDialogComponent> = this.dialog.open(
       AddPhotoDialogComponent,
       {
-        data: { photo: selectedPhoto }
+        data: { photo: selectedPhoto },
       }
     );
     dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
@@ -48,7 +48,9 @@ export class PhotoListComponent implements OnInit {
       AddPhotoDialogComponent
     );
     dialogRef.afterClosed().subscribe((newPhoto: TMTPhoto) => {
-      this.saveNewPhoto(newPhoto);
+      if (newPhoto) {
+        this.saveNewPhoto(newPhoto);
+      }
     });
   }
 
@@ -87,7 +89,7 @@ export class PhotoListComponent implements OnInit {
     const dialogRef: MatDialogRef<ShowPictureDialogComponent> = this.dialog.open(
       ShowPictureDialogComponent,
       {
-        data: { photo: selectedPhoto }
+        data: { photo: selectedPhoto },
       }
     );
   }

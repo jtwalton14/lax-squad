@@ -1,35 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { ColorsService } from "../services";
-import { TMTColor, TmTUser } from "packages/objects";
+import { TMTColor } from "packages/objects";
 import { AddColorDialogComponent } from "./add-color-dialog/add-color-dialog/add-color-dialog.component";
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { ConfirmDeleteDialogComponent } from "../confirm-delete-dialog/confirm-delete-dialog.component";
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: "color-list",
   templateUrl: "./color-list.component.html",
-  styleUrls: ["./color-list.component.css"]
+  styleUrls: ["./color-list.component.css"],
 })
 export class ColorListComponent implements OnInit {
-  color: string[] = [
-    "red",
-    "yellow",
-    "orange",
-    "blue",
-    "purple",
-    "green",
-    "light blue",
-    "pink",
-    "dark green",
-    "grey",
-    "white"
-  ];
-
   public busy = false;
 
   public colors: TMTColor[] = [];
@@ -44,11 +26,12 @@ export class ColorListComponent implements OnInit {
     const dialogRef: MatDialogRef<AddColorDialogComponent> = this.dialog.open(
       AddColorDialogComponent,
       {
-        data: { selectedColor: color }
+        data: { selectedColor: color },
       }
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
       if (newColor) {
+        newColor.hexValue = "#" + newColor.hexValue;
         this.saveColor(newColor);
       }
     });
@@ -60,8 +43,8 @@ export class ColorListComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe((newColor: TMTColor) => {
       if (newColor) {
+        newColor.hexValue = "#" + newColor.hexValue;
         this.saveNewColor(newColor);
-        this.loadColors();
       }
     });
   }
