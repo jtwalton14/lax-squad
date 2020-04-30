@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Using the site
-The site uses Google Firebase (learn more [here](https://firebase.google.com/docs)). To learn more about how to use the admin portal click one of these links. 
-[Color Page](https://github.com/jtwalton14/lax-squad/wiki/Admin-Color-Help-Page)
-[Photo Page](https://github.com/jtwalton14/lax-squad/wiki/Admin-Photo-Help-Page)
+The site uses Google Firebase (learn more [here](https://firebase.google.com/docs)). To learn more about how to use the admin portal click one of these links: 
+[Color Page](https://github.com/jtwalton14/lax-squad/wiki/Admin-Color-Help-Page), 
+[Photo Page](https://github.com/jtwalton14/lax-squad/wiki/Admin-Photo-Help-Page), 
 [Pocket Type Page](https://github.com/jtwalton14/lax-squad/wiki/Admin-Pocket-Type-Help-Page)
