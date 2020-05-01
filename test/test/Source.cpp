@@ -61,22 +61,74 @@ int main()
 			}*/
 			/*else*/ if ((h <= 15 || h >= 165) && s > 30){
 				h = redShift(h);
+				const unsigned char light_shift = 100;
+				s = 0;
+
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 			else if ((h < 45 && h > 15) && s > 30) {
 				h = yellowShift(h);
+				const unsigned char light_shift = 25;
+				s = 0;
+
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 			else if ((h < 75 && h > 45) && s > 30) {
 				h = greenShift(h);
+				const unsigned char light_shift = 100;
+				s = 0;
 
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 			else if ((h < 105 && h > 75) && s > 30) {
 				h = lightBlueShift(h);
+				const unsigned char light_shift = 25;
+				s = 0;
+
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 			else if ((h < 135 && h > 105) && s > 30) {
 				h = darkBlueShift(h);
+				const unsigned char light_shift = 100;
+				s = 0;
+
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 			else if ((h < 165 && h > 135) && s > 30) {
 				h = pinkShift(h);
+				const unsigned char light_shift = 50;
+
+				if (l + light_shift >= 255) {
+					l = 255;
+				}
+				else {
+					l += light_shift;
+				}
 			}
 
 			// Set hue.
@@ -140,7 +192,7 @@ unsigned char lightBlueShift(unsigned char h) {
 }
 
 unsigned char darkBlueShift(unsigned char h) {
-	const unsigned char hue_shift = 180;
+	const unsigned char hue_shift = 0;
 
 	if (h + hue_shift > 135)
 		h = (h + hue_shift) - 120;

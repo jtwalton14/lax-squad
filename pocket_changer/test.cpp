@@ -19,7 +19,7 @@ unsigned char yellowShift(unsigned char h, int hue_shift);
 unsigned char lightBlueShift(unsigned char h, int hue_shift);
 unsigned char pinkShift(unsigned char h, int hue_shift);
 unsigned char blackShift(unsigned char l);
-unsigned char whiteShift(unsigned char l);
+unsigned char whiteShift(unsigned char l, unsigned char light_shift);
 int findColor(string col);
 
 
@@ -80,7 +80,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[left] == "white" && s > 30){
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 100);
         }
         else {
             h = darkBlueShift(h, hueVal[left]);
@@ -96,7 +96,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[middle] == "white" && s > 30){
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 100);
         }
         else {
         h = greenShift(h, hueVal[middle]);
@@ -112,7 +112,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[right] == "white" && s > 30){
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 100);
         }
         else {            
         h = redShift(h, hueVal[right]);
@@ -128,7 +128,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[right] == "white" && s > 30){ //needs updated
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 25);
         }
         else {
         h = yellowShift(h, hueVal[right]); //needs updated
@@ -144,7 +144,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[right] == "white" && s > 30){ //needs updated
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 25);
         }
         else {
         h = lightBlueShift(h, hueVal[right]); //needs updated
@@ -160,7 +160,7 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
         }
         else if (colors[right] == "white" && s > 30){ //needs updated
             s = 0;
-            l = whiteShift(l);
+            l = whiteShift(l, 0);
         }
         else {
         h = pinkShift(h, hueVal[right]); //needs updated
@@ -288,10 +288,8 @@ unsigned char blackShift(unsigned char l)
 	return l;
 }
 
-unsigned char whiteShift(unsigned char l)
+unsigned char whiteShift(unsigned char l, unsigned char light_shift)
 {
-
-	const unsigned char light_shift = 0;
 
 	if (l + light_shift >= 255) {
 		l = 255;
