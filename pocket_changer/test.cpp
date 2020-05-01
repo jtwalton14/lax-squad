@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
     int leftColor = findColor(argv[2]);
     int middleColor = findColor(argv[3]);
     int rightColor = findColor(argv[4]);
+    //int leftLeather = findColor(argv[5]);
+    //int rightLeather = findColor(argv[6]);
 
 
     Mat hsv;
@@ -64,6 +66,11 @@ int main(int argc, char *argv[])
 
 unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, int left, int middle, int right)
 {
+    //This loops through each pixel in the image and finds the hue of the picture
+    //The variable in the colors array should match what color is in that place on the original picture
+    //If the right string in the pocket is red, then within the else if statement for red it should look like: colors[left]
+    //This will allow each section of the pocket to be one color, and be able to change each section independently of the others
+
     //finds if pixel is darkBlue
     if (h < 135 && h > 105)
     {
@@ -165,6 +172,11 @@ unsigned char colorShift(unsigned char h, unsigned char &s, unsigned char &l, in
 
 unsigned char darkBlueShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Dark Blue to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+
 	if (h + hue_shift > 135)
 		h = (h + hue_shift) - 120;
 	else
@@ -175,6 +187,11 @@ unsigned char darkBlueShift(unsigned char h, int hue_shift)
 
 unsigned char greenShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Green to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+    
     if (h + hue_shift > 75)
 		h = (h + hue_shift) - 60;
 	else
@@ -185,6 +202,11 @@ unsigned char greenShift(unsigned char h, int hue_shift)
 
 unsigned char redShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Red to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+    
     if (h + hue_shift > 180)
 		h = (h + hue_shift) - 180;
 	else
@@ -195,6 +217,11 @@ unsigned char redShift(unsigned char h, int hue_shift)
 
 unsigned char yellowShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Yellow to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+    
     if (h + hue_shift > 45)
 		h = (h + hue_shift) - 30;
 	else
@@ -205,6 +232,11 @@ unsigned char yellowShift(unsigned char h, int hue_shift)
 
 unsigned char lightBlueShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Light Blue to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+    
     if (h + hue_shift > 105)
 		h = (h + hue_shift) - 90;
 	else
@@ -215,6 +247,11 @@ unsigned char lightBlueShift(unsigned char h, int hue_shift)
 
 unsigned char pinkShift(unsigned char h, int hue_shift)
 {
+    //This will shift the hue of Pink to any other color
+    //If the color after shifting looks too light or dark, the lighting value can also be shifted
+    //Example of light shifting: l = l + 10;
+    //Will need to pass l to this function by reference so that it changes outside as well
+    
     if (h + hue_shift > 165)
 		h = (h + hue_shift) - 165;
 	else
