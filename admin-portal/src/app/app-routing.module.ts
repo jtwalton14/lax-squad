@@ -6,11 +6,11 @@ import { PocketTypeListComponent } from "./pocket-type-list/pocket-type-list/poc
 import { LoginPageComponent } from "./login-page/login-page.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginPageComponent },
   { path: "photo-list", component: PhotoListComponent },
   { path: "color-list", component: ColorListComponent },
   { path: "pocket-type-list", component: PocketTypeListComponent },
-  { path: "login", component: LoginPageComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
